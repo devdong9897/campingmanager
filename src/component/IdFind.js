@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const IdFind = () => {
-  return (
-    <div>IdFind</div>
-  )
-}
+  return <div>아이디파인드</div>;
+};
 
-export default IdFind
+export default IdFind;
