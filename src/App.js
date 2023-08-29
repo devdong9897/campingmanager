@@ -4,7 +4,9 @@ import Login from './component/Login';
 import Account from './pages/Account';
 import Main from './pages/Main';
 
+
 function App() {
+  // g하하하하
   return (
     <Routes>
       <Route path='/*' element={<Account />}></Route>
