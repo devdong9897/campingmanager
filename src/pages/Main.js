@@ -7,20 +7,23 @@ import OrderManage from "./OrderManage";
 import ProductManage from "./ProductManage";
 import BoardManage from "./BoardManage";
 import Reservation from "./Reservation";
+import { MainWrap } from "../css/main-style";
 
 const Main = () => {
   return (
-    <div>
+    <MainWrap>
       <Header />
-      <Routes>
-        <Route path="/" element={<MainContent />}></Route>
-        <Route path="/clientmanage" element={<ClientManage />}></Route>
-        <Route path="/ordermanage" element={<OrderManage />}></Route>
-        <Route path="/productmanage" element={<ProductManage />}></Route>
-        <Route path="/boardmanage" element={<BoardManage />}></Route>
-        <Route path="/reservation" element={<Reservation />}></Route>
-      </Routes>
-    </div>
+      <div className="contents_area">
+        <Routes>
+          <Route path="/" element={<MainContent />}></Route>
+          <Route path="/clientmanage" element={<ClientManage />}></Route>
+          <Route path="/ordermanage" element={<OrderManage />}></Route>
+          <Route path="/productmanage" element={<ProductManage />}></Route>
+          <Route path="/boardmanage" element={<BoardManage />}></Route>
+          <Route path="/reservation" element={<Reservation />}></Route>
+        </Routes>
+      </div>
+    </MainWrap>
   );
 };
 

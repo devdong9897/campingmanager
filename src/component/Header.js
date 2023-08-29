@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { Home } from "../css/header-style";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -8,11 +9,10 @@ const Header = () => {
     navigate("/main/usermanage");
   };
   return (
-    <div>
-      <button onClick={handleuser}>유저관리</button>
-      <ul>
+    <Home>
+      <ul className="home_categories">
         <li>
-          <Link to="/main">메인</Link>
+          <Link to="/main">홈</Link>
         </li>
         <li>
           <Link to="/main/ordermanage">주문</Link>
@@ -30,7 +30,7 @@ const Header = () => {
           <Link to="/main/reservation">예약</Link>
         </li>
       </ul>
-    </div>
+    </Home>
   );
 };
 
