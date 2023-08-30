@@ -9,7 +9,7 @@ export const ContentMain = styled.div`
     h2 {
       margin-bottom: 10px;
     }
-    .day_data {
+    .miancontent_data {
       display: flex;
       justify-content: space-between;
       width: 100%;
@@ -41,20 +41,23 @@ export const ContentMain = styled.div`
             }
           }
           &:nth-child(2) {
-            height: 30%;
+            height: 60%;
             background: #fff;
           }
         }
       }
     }
+    .shoppingmall {
+      margin-top: 50px;
+    }
     .test {
       margin-top: 100px;
       width: 100%;
-      height: 500px;
+      height: 500px;    
       .pie_wrapper {
         width: 100%;
         height: 100%;
-        background: gainsboro;
+        background: #F4F5F8;
         .pie_list {
           display: flex;
           width: 100%;

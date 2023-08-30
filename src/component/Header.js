@@ -15,13 +15,13 @@ const Header = () => {
           <Link to="/main">홈</Link>
         </li>
         <li>
-          <Link to="/main/ordermanage">주문</Link>
+          <Link to="/main/usermanage">유저관리</Link>
         </li>
         <li>
           <Link to="/main/clientmanage">고객</Link>
         </li>
         <li>
-          <Link to="/main/productmanage">상품</Link>
+          <Link to="/main/productmanage">아이템관리</Link>
         </li>
         <li>
           <Link to="/main/boardmanage">게시판</Link>
