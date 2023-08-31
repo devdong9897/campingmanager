@@ -8,24 +8,30 @@ export const Home = styled.div`
   height: 100vh;
   background: #3e3e3e;
   font-weight: 700;
-  .userbutton {
-  }
   .home_categories {
     list-style: none;
     text-align: center;
     margin-top: 100%;
-  }
-  .home_categories li {
-    font-size: 30px;
-    margin-top: 20px;
-    transition: color 0.3s;
-  }
-  .home_categories li a {
-    color: #fff;
-    text-decoration: none;
-    &:hover {
-      color: #00C2FF;
+    li {
+      font-size: 30px;
+      margin-top: 20px;
+      transition: color 0.3s;
+      a {
+        color: #fff;
+        text-decoration: none;
+        &:hover {
+          color: #00c2ff;
+        }
+      }
+    }
+    p {
+      margin-top: 50%;
+      font-size: 13px;
+      color: #fff;
+      cursor: pointer;
+      &:hover {
+        color: red;
+      }
     }
   }
-
 `;

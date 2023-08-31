@@ -1,17 +1,17 @@
 import styled from "@emotion/styled";
 
-export const ClientWrapper = styled.div`
+export const UserWrapper = styled.div`
     width:100%;
     height: auto;
     padding-top:50px;
     padding-bottom:150px;
     /* background-color: lightgray; */
-    .client_inner {
+    .user_inner {
         width:auto;
         height:auto;
         overflow:hidden;
         padding:10px;
-        .client_list_top{
+        .user_list_top{
             width: 100%;
             height: 300px;
             background-color: white;
@@ -44,12 +44,12 @@ export const ClientWrapper = styled.div`
                         border-top:none;
                     }
             }
-            .client_top_button {
+            .user_top_button {
                 margin-top:15px;
                 text-align:center;
             }
         }
-        .client_list_bottom{
+        .user_list_bottom{
             width: 100%;
             height: auto;
             background-color: white;
@@ -82,7 +82,7 @@ export const ClientWrapper = styled.div`
                     line-height:40px;
                 }
             }
-            .client_bottom_button {
+            .user_bottom_button {
                 margin-top:15px;
                 text-align:center;
             }
