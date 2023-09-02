@@ -6,6 +6,13 @@ import DropdownMenu from "../component/DropdownMenu";
 
 const Header = () => {
   const navigate = useNavigate();
+  const [lnb, isLnb] = useState(false);
+  const [lnbIndex, setLnbIndex] = useState("");
+
+  const toggleMenu = index => {
+    isLnb(!lnb);
+    setLnbIndex(index);
+  };
   // const handleuser = () => {
   //   navigate("/main/ordermanage");
   // };
@@ -14,13 +21,17 @@ const Header = () => {
     // 로그인 페이지로 이동
     navigate("/");
   };
-  // 중첩 라우트 선택 상태를 관리할 useState
-  const [selectedRoute, setSelectedRoute] = useState("")
-  const handleRouteChange = (event) => {
-    setSelectedRoute(event.target.value);
-    navigate(`/main/ordermanage/${event.target.value}`)
-    navigate(`/main/productmanage/${event.target.value}`)
-  }
+  // // 중첩 라우트 선택 상태를 관리할 useState
+  // const [selectedRoute, setSelectedRoute] = useState("");
+  // const handleRouteChange = event => {
+  //   setSelectedRoute(event.target.value);
+  //   navigate(`/main/ordermanage/${event.target.value}`);
+  //   navigate(`/main/productmanage/${event.target.value}`);
+  // };
+
+  const handleOrderDrop = () => {
+    isLnb(true);
+  };
   return (
     <Home>
       <ul className="home_categories">
@@ -30,26 +41,51 @@ const Header = () => {
         <li>
           <Link to="/main/usermanage">유저관리</Link>
         </li>
-        <li>
-          <Link to="/main/ordermanage">주문관리</Link>
-            <select value={selectedRoute} onChange={handleRouteChange}>
-            <option value="orderinquiry">전체 주문조회</option>
-            <option value="orderrefund">환불관리</option>
-          </select>
+        <li onClick={() => toggleMenu(0)}>
+          주문관리
+          <ul className={`lnb ${lnbIndex === 0 ? "active" : ""}`}>
+            <li>
+              <Link to="/main/ordermanage/orderinquiry">전체 주문조회</Link>
+            </li>
+            <li>
+              <Link to="/main/ordermanage/orderrefund">환불관리</Link>
+            </li>
+          </ul>
         </li>
-        <li>
-          <Link to="/main/productmanage">아이템관리</Link>
-          <select value={selectedRoute} onChange={handleRouteChange}>
-            <option value="categoryadmin">카테고리 관리</option>
-            <option value="orderregistration">아이템 등록</option>
-            <option value="itemmanage">아이템 관리</option>
-            <option value="itemstockmanage">아이템 재고 관리</option>
-            <option value="itemlist">아이템 목록</option>
-          </select>
+        <li onClick={() => toggleMenu(1)}>
+          상품관리
+          <ul className={`lnb ${lnbIndex === 1 ? "active" : ""}`}>
+            <li>
+              <Link to="/main/productmanage/categoryadmin">카테고리 관리</Link>
+            </li>
+            <li>
+              <Link to="/main/productmanage/orderregistration">
+                카테고리 등록
+              </Link>
+            </li>
+            <li>
+              <Link to="/main/productmanage/itemmanage"></Link>상품관리
+            </li>
+            <li>
+              <Link to="/main/productmanage/itemstockmanage">
+                상품 재고 관리
+              </Link>
+            </li>
+            <li>상품 목록</li>
+          </ul>
         </li>
-        <li>
-          <DropdownMenu />
+        <li onClick={() => toggleMenu(2)}>
+          게시판
+          <ul className={`lnb ${lnbIndex === 2 ? "active" : ""}`}>
+            <li>
+              <Link to="/main/boardmanage">게시판 관리</Link>
+            </li>
+            <li>
+              <Link to="/main/postsboard">게시물 관리</Link>
+            </li>
+          </ul>
         </li>
+        <li>{/* <DropdownMenu /> */}</li>
         <p onClick={handleLogout}>로그아웃</p>
       </ul>
     </Home>
