@@ -12,21 +12,21 @@ const ItemManage = () => {
                         <li>
                             <span>검색분류</span>
                             <span>
-                                <input type=""/>
+                                <input type="text"/>
                             </span>
                             <span>상품 등록일</span>
                             <span>
-                            <input type=""/>
+                            <input type="text"/>
                             </span>
                         </li>
                         <li>
                             <span>카테고리</span>
                             <span>
-                            <input type=""/>
+                            <input type="text"/>
                             </span>
                             <span>진열 상태</span>
                             <span>
-                            <input type=""/>
+                            <input type="text"/>
                             </span>
                         </li>
                     </ul>

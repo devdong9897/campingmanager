@@ -20,6 +20,12 @@ export const OrderRegistrationWrapper = styled.div`
         h2 {
             margin-top:10px;
         }
+        select{
+                width: 90%;
+                height: 30px;
+                border-radius: 10px;
+                border:2px solid #000;
+            }
         button {
             padding:5px 50px;
         }

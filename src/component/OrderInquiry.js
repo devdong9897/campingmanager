@@ -17,9 +17,7 @@ const OrderInquiry = () => {
               <button>7일</button>
               <button>1개월</button>
               <input type="date"/>
-              {/* <FontAwesomeIcon icon="fa-solid fa-calendar-days" /> */} 
               &nbsp; ~ 
-              {/* <FontAwesomeIcon icon="fa-solid fa-calendar-days" /> */}
               &nbsp;  
               <input type="date"/>
             </span>

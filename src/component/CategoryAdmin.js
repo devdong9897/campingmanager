@@ -15,7 +15,7 @@ const CategoryAdmin = () => {
                   <span>카테고리 URL</span>
                   <span>카테고리 설명</span>
                   <span>카테고리 표시 상태</span>
-                  <span>응..</span>
+                  <span>응..가</span>
                 </li>
                 <li>
                   <span>ㅁㅁㅁ</span>

@@ -28,10 +28,17 @@ export const ItemManageWrapper = styled.div`
                 grid-template-columns:1fr 1fr 1fr 1fr ;
                 span{
                     float:left;
-                    width: 100%;
+                    width: 100;
                     height: 30px;;
                     line-height:30px;
-                    border-right:1px solid #000;                  
+                    border-right:1px solid #000;  
+                    input{
+                        border:none;
+                        float:left;
+                        line-height:30px;
+                        text-indent: 10px;
+                        width: 100%;
+                    }
                 }
                 span:nth-of-type(odd) {
                     background-color: lightgray;

@@ -17,9 +17,9 @@ const UserManage = () => {
                 </span>
                 <span>성별</span>
                 <span>
-                  <input type="radio" />
+                  <input type="radio" name="userradio" />
                   남자
-                  <input type="radio" />
+                  <input type="radio" name="userradio" />
                   여자
                 </span>
               </li>
