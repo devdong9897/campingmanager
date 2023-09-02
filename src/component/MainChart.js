@@ -1,7 +1,7 @@
 import React from "react";
 import { ResponsivePieCanvas } from "@nivo/pie";
 
-const MainChart = () => {
+const   MainChart = () => {
   const data = [
     {
       id: "gold",
@@ -25,6 +25,7 @@ const MainChart = () => {
             enableGridY={true}
             enableLabel={false}
           />
+        <p>회원 성별 비율</p>
         </li>
         <li>
           <ResponsivePieCanvas
@@ -34,15 +35,7 @@ const MainChart = () => {
             enableGridY={true}
             enableLabel={false}
           />
-        </li>
-        <li>
-          <ResponsivePieCanvas
-            data={data}
-            keys={["value"]}
-            indexBy="country"
-            enableGridY={true}
-            enableLabel={false}
-          />
+        <p>회원 나이 비율</p>
         </li>
       </ul>
     </div>

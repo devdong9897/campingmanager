@@ -60,6 +60,7 @@ export const ContentMain = styled.div`
         background: #F4F5F8;
         .pie_list {
           display: flex;
+          justify-content: center;
           width: 100%;
           height: 100%;
           li {
@@ -70,6 +71,10 @@ export const ContentMain = styled.div`
             width: 33.3%;
             height: 100%;
             padding: 50px;
+            p {
+              font-weight: 700;
+              margin-top: 15px;
+            }
           }
         }
       }

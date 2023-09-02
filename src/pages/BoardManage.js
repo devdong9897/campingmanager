@@ -9,10 +9,10 @@ const BoardManage = () => {
         <ul className="mainboard_data">
           <li className="first_chart">
             <span>
-            <input type="checkbox" />
+              <input type="checkbox" />
             </span>
             <span>
-            <input type="checkbox" />
+              <input type="checkbox" />
             </span>
           </li>
           <li>
@@ -40,6 +40,10 @@ const BoardManage = () => {
             <span>표시</span>
           </li>
         </ul>
+        <div className="bottom_btn">
+          <button className="delete_btn">삭제</button>
+          <button className="add_btn">게시판 추가</button>
+        </div>
       </div>
     </Board>
   );

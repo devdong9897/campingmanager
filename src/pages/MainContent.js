@@ -9,6 +9,10 @@ const MainCotent = () => {
         <h2>오늘의할일</h2>
         <ul className="miancontent_data">
           <li>
+            <span>오늘 방문자</span>
+            <span>0</span>
+          </li>
+          <li>
             <span>배송준비중/배송보류중</span>
             <span>0</span>
           </li>

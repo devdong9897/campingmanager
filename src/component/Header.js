@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { Home } from "../css/header-style";
+import DropdownMenu from "../component/DropdownMenu";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Header = () => {
   // 로그아웃 클릭시 처리하는 함수
   const handleLogout = () => {
     // 로그인 페이지로 이동
-    navigate("/login");
+    navigate("/");
   };
   return (
     <Home>
@@ -29,11 +30,8 @@ const Header = () => {
           <Link to="/main/productmanage">아이템관리</Link>
         </li>
         <li>
-          <Link to="/main/boardmanage">게시판관리</Link>
+          <DropdownMenu />
         </li>
-        {/* <li>
-          <Link to="/main/reservation">예약</Link>
-        </li> */}
         <p onClick={handleLogout}>로그아웃</p>
       </ul>
     </Home>
