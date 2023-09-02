@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Board } from "../css/boardmanage-style";
 
 const BoardManage = () => {
+  // 공지사항이다를 클릭할때 수정할수있는 박스 생성
+  const [isNoticeClicked, setIsNoticeClicked] = useState(false);
+
+  // 공지사항 클릭 핸들러
+  const handleNoticeClick = () => {
+    setIsNoticeClicked(!isNoticeClicked);
+  };
   return (
     <Board>
       <div className="board_inner">
         <h2>게시판 목록</h2>
+        {isNoticeClicked && (
+          <div className="notice_box">
+            <div className="first_box">
+              <p>게시판 제목</p>
+              <input type="text" />
+              <p className="announcement">게시판 안내글</p>
+              <input type="text" className="announcement_input" />
+            </div>
+          </div>
+        )}
         <ul className="mainboard_data">
           <li className="first_chart">
             <span>
@@ -17,7 +34,12 @@ const BoardManage = () => {
           </li>
           <li>
             <span>제목</span>
-            <span>공지사항이다잉</span>
+            <span
+              className={`notice ${isNoticeClicked ? "active" : ""}`}
+              onClick={handleNoticeClick}
+            >
+              공지사항이다잉
+            </span>
           </li>
           <li>
             <span>권한</span>

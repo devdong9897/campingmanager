@@ -9,6 +9,32 @@ export const Board = styled.div`
     h2 {
       margin-bottom: 10px;
     }
+    .notice_box {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 20px;
+      background: #fafafd;
+      border: 1px solid #e5e5e5;
+      .first_box {
+        p {
+          margin: 10px 0px 0px 10px;
+        }
+        input {
+          width: 30%;
+          margin: 0px 0px 0px 10px;
+          padding: 5px 0px 5px 15px;
+          border-radius: 15px;
+          border: 1px solid #828282;
+        }
+        .announcement {
+          margin-top: 30px;
+        }
+        .announcement_input {
+          width: 30%;
+          padding: 5px 0px 100px 15px;
+        }
+      }
+    }
     .mainboard_data {
       display: flex;
       justify-content: space-between;
@@ -37,6 +63,13 @@ export const Board = styled.div`
             background: #fff;
           }
         }
+        .notice {
+          text-decoration: underline;
+          cursor: pointer;
+          &:hover {
+            color: #828282;
+          }
+        }
       }
       .board_btn {
         display: flex;
@@ -52,6 +85,7 @@ export const Board = styled.div`
         }
       }
     }
+
     .bottom_btn {
       display: flex;
       justify-content: space-between;
