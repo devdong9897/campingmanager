@@ -9,11 +9,12 @@ const UserManage = () => {
         <div className="user_inner">
           <h1>회원 조회</h1>
           <div className="user_list_top">
-            <p>회원 정보조회</p>
             <ul>
               <li>
                 <span>이름</span>
-                <span></span>
+                <span>
+                  <input type="text" className="user_box"/>
+                </span>
                 <span>성별</span>
                 <span>
                   <input type="radio" />
@@ -23,12 +24,16 @@ const UserManage = () => {
                 </span>
               </li>
               <li>
-                <span>유저</span>
-                <span></span>
+                <span>유저 아이디</span>
+                <span>
+                  <input type="text" className="user_box"/>
+                </span>
               </li>
               <li>
                 <span>전화번호</span>
-                <span></span>
+                <span>
+                  <input type="text" className="user_box"/>
+                </span>
               </li>
             </ul>
 
@@ -58,6 +63,7 @@ const UserManage = () => {
                 <span>f</span>
                 <span>g</span>
               </li>
+              
             </ul>
             <div className="user_bottom_button">
               <button>검색</button>
