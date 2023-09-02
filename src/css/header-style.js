@@ -23,6 +23,9 @@ export const Home = styled.div`
           color: #00c2ff;
         }
       }
+      .ordermanage_list {
+        background-color: none;
+      }
     }
     p {
       margin-top: 50%;

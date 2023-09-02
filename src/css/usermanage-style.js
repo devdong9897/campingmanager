@@ -13,40 +13,58 @@ export const UserWrapper = styled.div`
         padding:10px;
         .user_list_top{
             width: 100%;
-            height: 300px;
+            height: auto;
             background-color: white;
             box-shadow: 2px 2px 2px #999;
             border:1px solid #eee;
-            padding:20px;
             ul {
                 width: 100%;
                 display: flex;
                 flex-direction:column;
                 li {
                     display: flex;
-                    justify-content:space-between;
+                    justify-content:flex-start;
                     width:100%;
                     height:50px;
                     border:1px solid #eee;
                     line-height:50px;
-                    text-align:center;
+                    .user_box{
+                        border:none;
+                    }
                 }
                     li:first-child span {
-                    width: 25%;
                     border:1px solid #eee;
                     border-right:0;
                     border-bottom:none;
                     }
-                    li:nth-child(2) span:first-child, li:nth-child(3) span:first-child{
-                        width:25%;
+                    li:first-child span:nth-child(odd),
+                    li:nth-child(2) span:first-child, 
+                    li:nth-child(3) span:first-child {
+                        background-color: lightgray;
+                        width:20%;
                         border:1px solid #eee;
                         border-bottom:none;
                         border-top:none;
+                        text-align:center;                       
+                    }
+                    li:first-child span:last-child input:last-child{
+                        margin-left:10px;
+                    }
+                    li:first-child span:nth-child(even), 
+                    li:nth-child(2) span:last-child,
+                    li:nth-child(3) span:last-child{
+                        width:30%;
+                        text-indent: 10px;
                     }
             }
             .user_top_button {
-                margin-top:15px;
+                margin:15px;
                 text-align:center;
+                button{
+                    padding:5px 20px;
+                    background-color: lightgray;
+                    border:none;
+                }
             }
         }
         .user_list_bottom{
@@ -55,36 +73,46 @@ export const UserWrapper = styled.div`
             background-color: white;
             box-shadow: 2px 2px 2px #999;
             border:1px solid #eee;
-            padding:20px;
             ul {
                 width: 100%;
-                display: flex;
-                flex-direction:column;
+                height: auto;
+                overflow: hidden;
                 li {
-                    display: flex;
-                    justify-content:space-between;
+                    float:left;
+                    display: grid;
+                    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr;
                     width:100%;
-                    height:40px; 
-                    border-bottom:1px solid black;
-                    font-size:15px;
-                    padding:0 15px;
-                    line-height:40px;
+                    height:auto; 
+                    text-align: center;
+                    
+                    span{
+                        float:left;
+                        width: 100%;
+                        height:auto;
+                        line-height: 30px;
+                        border:1px solid #000;
+                        border-right:none;
+                        border-bottom:none;
+                    }
+                    span:last-child {
+                        border-right:1px solid  #000;
+                    }
                 }
-                li:first-child {
-                    display: flex;
-                    justify-content:space-between;
-                    width:100%;
-                    height:40px; 
-                    border-bottom:1px solid black;
-                    background-color: lightgray;
-                    font-size:15px;
-                    padding:0 15px;
-                    line-height:40px;
+                li:first-child{
+                background-color: lightgray;
+            }
+                li:last-child {
+                    border-bottom:1px solid #000;
                 }
             }
             .user_bottom_button {
-                margin-top:15px;
+                margin:15px 0;
                 text-align:center;
+                button{
+                    padding:5px 20px;
+                    background-color: lightgray;
+                    border:none;
+                }
             }
         }
     }
