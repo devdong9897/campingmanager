@@ -9,7 +9,14 @@ const OrderRegistration = () => {
                 <h2>상품명</h2>
                 <input type="text"/>
                 <h2>카테고리 설정</h2>
-                <input type="text"/>
+                  <select>
+                    <option>분류</option>
+                    <option>축산물</option>
+                    <option>수산물</option>
+                    <option>소스/드레싱</option>
+                    <option>밀키트</option>
+                    <option>농산물</option>
+                  </select>
                 <h2>상품가격</h2>
                 <input type="text"/>
                 <h2>판매상태</h2>

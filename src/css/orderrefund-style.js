@@ -20,17 +20,15 @@ export const OrderRefundWrapper = styled.div`
       ul {
         width: 100%;
         height: auto;
-        display: flex;
-        flex-direction: column;
         overflow: hidden;
         li {
-          display: flex;
-          justify-content: flex-start;
+          float:left;
+          display: grid;
+          grid-template-columns:1fr 3fr;
           width: 100%;
           height: auto;
           border: 1px solid #ccc;
           line-height: 30px;
-          text-align: center;
           button{
             padding:1px 5px;
             margin-right:8px;
@@ -46,19 +44,22 @@ export const OrderRefundWrapper = styled.div`
         }
         li:first-child {
           border-bottom: none;
-          span:first-child{
-            width:250px;
+          span:first-child,
+          span:last-child
+          {
+            width:auto;
             height: auto;
-            background-color: #ddd;
           }
           span:last-child {
             margin-left:10px;
           }
         }
+        li:nth-of-type(1) span:first-child,
         li:nth-of-type(2) span:first-child{
-          width:250px;
+          width:auto;
           height: auto;
           background-color: #ddd;
+          text-align: center;
         }
         li:nth-of-type(2) .order_refund_box {
           border:none;

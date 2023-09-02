@@ -19,43 +19,26 @@ export const UserWrapper = styled.div`
             border:1px solid #eee;
             ul {
                 width: 100%;
-                display: flex;
-                flex-direction:column;
+                height: auto;
+                overflow: hidden;
                 li {
-                    display: flex;
-                    justify-content:flex-start;
+                    display: grid;
+                    grid-template-columns:1fr 1fr 1fr 1fr;
                     width:100%;
-                    height:50px;
+                    height:auto;
                     border:1px solid #eee;
-                    line-height:50px;
-                    .user_box{
+                    text-align: center;
+                    span{
+                        float:left;
+                        width: 100%;
+                        height:30px;
+                        line-height:30px;
+                        border:1px solid #000;
+                        input{
                         border:none;
+                        }
                     }
                 }
-                    li:first-child span {
-                    border:1px solid #eee;
-                    border-right:0;
-                    border-bottom:none;
-                    }
-                    li:first-child span:nth-child(odd),
-                    li:nth-child(2) span:first-child, 
-                    li:nth-child(3) span:first-child {
-                        background-color: lightgray;
-                        width:20%;
-                        border:1px solid #eee;
-                        border-bottom:none;
-                        border-top:none;
-                        text-align:center;                       
-                    }
-                    li:first-child span:last-child input:last-child{
-                        margin-left:10px;
-                    }
-                    li:first-child span:nth-child(even), 
-                    li:nth-child(2) span:last-child,
-                    li:nth-child(3) span:last-child{
-                        width:30%;
-                        text-indent: 10px;
-                    }
             }
             .user_top_button {
                 margin:15px;

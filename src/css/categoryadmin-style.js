@@ -65,7 +65,7 @@ export const CategoryAdminWrapper = styled.div`
                     float:left;
                     padding:10px;
                     input {
-                        width: 100%;
+                        width: 80%;
                         height: 30px;
                         border-radius:15px;
                         text-indent: 10px;
@@ -79,8 +79,7 @@ export const CategoryAdminWrapper = styled.div`
                             background-color: lightyellow;
                         }
                     }
-
-                }
+            }
                 .category_admin_add_left_bottom {
                     margin-top:50px;
                 }

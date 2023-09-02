@@ -20,17 +20,15 @@ export const OrderInquiryWrapper = styled.div`
       ul {
         width: 100%;
         height: auto;
-        display: flex;
-        flex-direction: column;
         overflow: hidden;
         li {
-          display: flex;
-          justify-content: flex-start;
+          float:left;
+          display: grid;
+          grid-template-columns:1fr 3fr;
           width: 100%;
           height: auto;
           border: 1px solid #ccc;
           line-height: 30px;
-          text-align: center;
           button{
             padding:1px 5px;
             margin-right:8px;
@@ -47,7 +45,7 @@ export const OrderInquiryWrapper = styled.div`
         li:first-child {
           border-bottom: none;
           span:first-child{
-            width:250px;
+            width:auto;
             height: auto;
             background-color: #ddd;
           }
@@ -55,14 +53,17 @@ export const OrderInquiryWrapper = styled.div`
             margin-left:10px;
           }
         }
+        li:nth-of-type(1) span:first-child,
         li:nth-of-type(2) span:first-child{
-          width:250px;
+          width:auto;
           height: auto;
           background-color: #ddd;
+          text-align: center;
         }
         li:nth-of-type(2) span:last-child input{
           border:none;
           text-indent:10px;
+          width: 100%;
         }
       }
       div{
