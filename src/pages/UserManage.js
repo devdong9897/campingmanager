@@ -26,21 +26,21 @@ const UserManage = () => {
               <li>
                 <span>유저 아이디</span>
                 <span>
-                  <input type="text" className="user_box"/>
+                  <input type="text"/>
                 </span>
               </li>
               <li>
                 <span>전화번호</span>
                 <span>
-                  <input type="text" className="user_box"/>
+                  <input type="text"/>
                 </span>
               </li>
             </ul>
-
+          </div>
             <div className="user_top_button">
               <button>검색</button>
             </div>
-          </div>
+          
 
           <h1>회원 목록</h1>
           <div className="user_list_bottom">
@@ -65,9 +65,6 @@ const UserManage = () => {
               </li>
               
             </ul>
-            <div className="user_bottom_button">
-              <button>검색</button>
-            </div>
           </div>
         </div>
       </div>

@@ -28,7 +28,7 @@ export const ItemManageWrapper = styled.div`
                 grid-template-columns:1fr 1fr 1fr 1fr ;
                 span{
                     float:left;
-                    width: 100;
+                    width: 100%;
                     height: 30px;;
                     line-height:30px;
                     border-right:1px solid #000;  
@@ -55,7 +55,8 @@ export const ItemManageWrapper = styled.div`
                 text-align: center;
                 padding:10px 0;
                 button{
-                    padding:5px 20px;
+                    margin-top:30px;
+                    padding:5px 30px;
                     background-color: lightblue;
                     border:none;
                     color:white;
@@ -64,6 +65,7 @@ export const ItemManageWrapper = styled.div`
             
         }
         .itemmanage_bottom {
+            margin-top:100px;
             width: 100%;
             height:auto;
             overflow:hidden;

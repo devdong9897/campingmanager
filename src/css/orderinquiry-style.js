@@ -24,7 +24,7 @@ export const OrderInquiryWrapper = styled.div`
         li {
           float:left;
           display: grid;
-          grid-template-columns:1fr 3fr;
+          grid-template-columns:1fr 2fr 1fr 2fr;
           width: 100%;
           height: auto;
           border: 1px solid #ccc;
@@ -42,29 +42,37 @@ export const OrderInquiryWrapper = styled.div`
             border:1px solid blue;
           }
         }
-        li:first-child {
+        li:first-child span:nth-child(2) {
+          margin:0 auto;
+        }
+        li:first-child,
+        li:nth-child(2) {
           border-bottom: none;
-          span:first-child{
-            width:auto;
-            height: auto;
-            background-color: #ddd;
-          }
-          span:last-child {
-            margin-left:10px;
-          }
         }
         li:nth-of-type(1) span:first-child,
-        li:nth-of-type(2) span:first-child{
-          width:auto;
+        li:nth-of-type(1) span:nth-child(3),
+        li:nth-of-type(2) span:first-child,
+        li:nth-of-type(2) span:nth-child(3),
+        li:nth-of-type(3) span:nth-child(1),
+        li:nth-of-type(3) span:nth-child(3),
+        li:nth-of-type(4) span:first-child
+        {
+          border:none;
+          width:100%;
           height: auto;
-          background-color: #ddd;
+          background-color: lightgray;
           text-align: center;
         }
-        li:nth-of-type(2) span:last-child input{
-          border:none;
-          text-indent:10px;
+        li:first-child span:last-child input,
+        li:nth-of-type(2) span:nth-child(2) input,
+        li:nth-of-type(2) span:last-child input,
+        li:nth-of-type(3) span:nth-child(2) input,
+        li:nth-of-type(3) span:last-child input {
           width: 100%;
+          border:none;
+          text-indent: 10px;
         }
+        
       }
       div{
         text-align:center;
@@ -85,7 +93,7 @@ export const OrderInquiryWrapper = styled.div`
       margin-top:150px;
       li {
         display: grid;
-        grid-template-columns:1fr 1fr 1fr 1fr;
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
           width: 100%;
           height: auto;
           line-height: 30px;

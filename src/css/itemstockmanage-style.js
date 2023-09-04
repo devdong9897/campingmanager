@@ -63,6 +63,7 @@ export const ItemStockManageWrapper = styled.div`
             
             }
             div {
+                margin-bottom:100px;
                 text-align: center;
                 button{
                 margin-top:30px;

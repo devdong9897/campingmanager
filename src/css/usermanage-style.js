@@ -10,17 +10,16 @@ export const UserWrapper = styled.div`
         width:auto;
         height:auto;
         overflow:hidden;
-        padding:10px;
         .user_list_top{
             width: 100%;
             height: auto;
             background-color: white;
-            box-shadow: 2px 2px 2px #999;
             border:1px solid #eee;
             ul {
                 width: 100%;
                 height: auto;
                 overflow: hidden;
+                box-shadow: 2px 2px 2px #999;
                 li {
                     display: grid;
                     grid-template-columns:1fr 1fr 1fr 1fr;
@@ -33,21 +32,39 @@ export const UserWrapper = styled.div`
                         width: 100%;
                         height:30px;
                         line-height:30px;
-                        border:1px solid #000;
                         input{
                         border:none;
+                        text-indent: 10px;
                         }
                     }
+                    span:nth-of-type(odd) {
+                    background-color: lightgray;
+                }
+                }
+                li:first-child span:nth-of-type(2) input,
+                li:nth-of-type(2),
+                li:nth-of-type(3){
+                    width: 100%;
+                    grid-template-columns:1fr 3fr;
+                    input {
+                        float:left;
+                        text-indent: 10px;
+                        height:100%;
+                    }
+                } 
+                li:first-child span:nth-of-type(4) input:last-child {
+                    margin-left:10px;
                 }
             }
-            .user_top_button {
-                margin:15px;
-                text-align:center;
-                button{
-                    padding:5px 20px;
-                    background-color: lightgray;
-                    border:none;
-                }
+        }
+        .user_top_button {
+            margin:15px;
+            text-align:center;
+            button{
+                padding:5px 20px;
+                background-color: lightgray;
+                border:none;
+                margin-bottom:100px;
             }
         }
         .user_list_bottom{
@@ -55,7 +72,6 @@ export const UserWrapper = styled.div`
             height: auto;
             background-color: white;
             box-shadow: 2px 2px 2px #999;
-            border:1px solid #eee;
             ul {
                 width: 100%;
                 height: auto;
@@ -67,13 +83,12 @@ export const UserWrapper = styled.div`
                     width:100%;
                     height:auto; 
                     text-align: center;
-                    
                     span{
                         float:left;
                         width: 100%;
                         height:auto;
                         line-height: 30px;
-                        border:1px solid #000;
+                        border:1px solid #bbb;
                         border-right:none;
                         border-bottom:none;
                     }

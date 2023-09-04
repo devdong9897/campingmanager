@@ -64,14 +64,18 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/main/productmanage/itemmanage"></Link>상품관리
+              <Link to="/main/productmanage/itemmanage">상품관리</Link>
             </li>
             <li>
               <Link to="/main/productmanage/itemstockmanage">
                 상품 재고 관리
               </Link>
             </li>
-            <li>상품 목록</li>
+            <li>
+              <Link to="/main/productmanage/itemlist">
+                상품 목록
+              </Link>
+            </li>
           </ul>
         </li>
         <li onClick={() => toggleMenu(2)}>

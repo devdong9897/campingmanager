@@ -8,10 +8,11 @@ export const ItemListWrapper = styled.div`
     overflow: hidden;
     .itemlist_inner {
         width: 100%;
+        padding:10px;
         .itemlist_itempic {
             width: 30%;
             height: auto;
-            background-color:#eee;
+            background-color:lightgray;
             border:1px solid #000;
             border-radius: 5px;
             float:left;
