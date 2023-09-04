@@ -3,6 +3,8 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { Home } from "../css/header-style";
 import DropdownMenu from "../component/DropdownMenu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -34,6 +36,7 @@ const Header = () => {
   };
   return (
     <Home>
+      <div className="header_logo"></div>
       <ul className="home_categories">
         <li>
           <Link to="/main">홈</Link>
@@ -85,9 +88,13 @@ const Header = () => {
             </li>
           </ul>
         </li>
-        <li>{/* <DropdownMenu /> */}</li>
-        <p onClick={handleLogout}>로그아웃</p>
       </ul>
+      <div className="account_func">
+        <button className="logout_btn">
+          <FontAwesomeIcon icon={faRightFromBracket} />
+          로그아웃
+        </button>
+      </div>
     </Home>
   );
 };
