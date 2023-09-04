@@ -5,6 +5,7 @@ const OrderRegistration = () => {
   return (
     <OrderRegistrationWrapper>
         <div className='orderregistration_wrapper'>
+        <div className='itemmanage_inner'>
             <div className='orderregistration_left'>
                 <h2>상품명</h2>
                 <input type="text"/>
@@ -31,7 +32,8 @@ const OrderRegistration = () => {
                 <div className='orderregistration_right_innerbox'>sdf</div>
                 <h2>상품 상세 이미지</h2>
                 <div className='orderregistration_right_innerbox'>df</div>
-                <button>상품 등록</button>
+              <button>상품 등록</button>
+            </div>
             </div>
         </div>
     </OrderRegistrationWrapper>

@@ -16,14 +16,30 @@ const OrderInquiry = () => {
               <button>3일</button>
               <button>7일</button>
               <button>1개월</button>
-              <input type="date"/>
-              &nbsp; ~ 
-              &nbsp;  
-              <input type="date"/>
+              <input type="date"/> ~ <input type="date"/>
+            </span>
+            <span>총 상품금액</span>
+            <span>
+              <input type="text" className="order_box"/>
             </span>
           </li>
           <li>
             <span>주문번호</span>
+            <span>
+              <input type="text" className="order_box"/>
+            </span>
+            
+            <span>총 주문금액</span>
+            <span>
+              <input type="text" className="order_box"/>
+            </span>
+          </li>
+          <li>
+            <span>주문자</span>
+            <span>
+              <input type="text" className="order_box"/>
+            </span>
+            <span>배송상태</span>
             <span>
               <input type="text" className="order_box"/>
             </span>
@@ -37,16 +53,20 @@ const OrderInquiry = () => {
       <div className="order_inquiry_bottom">
         <ul>
           <li>
+            <span>주문일</span>
+            <span>주문번호</span>
             <span>주문자</span>
             <span>총 상품금액</span>
             <span>총 주문금액</span>
             <span>배송상태</span>
           </li>
           <li>
-            <span>sdf</span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span>a</span>
+            <span>b</span>
+            <span>c</span>
+            <span>d</span>
+            <span>e</span>
+            <span>f</span>
           </li>
         </ul>
       <div>

@@ -13,21 +13,25 @@ export const OrderRegistrationWrapper = styled.div`
         float:left;
         input{
             height: 30px;
-            width:90%;
+            width:45%;
             border-radius:10px;
             text-indent: 10px;
         }
         h2 {
-            margin-top:10px;
+            margin-top:20px;
         }
+
         select{
-                width: 90%;
+                width: 20%;
                 height: 30px;
+                text-indent: 5px;
                 border-radius: 10px;
                 border:2px solid #000;
             }
         button {
             padding:5px 50px;
+            margin-right:5px;
+            background-color:white;
         }
         button:hover {
             background-color: lightyellow;
@@ -37,6 +41,7 @@ export const OrderRegistrationWrapper = styled.div`
             text-indent: 10px;
             border-radius: 5px;
             width: 90%;
+            padding-top:5px;
         }
 }
 .orderregistration_right {

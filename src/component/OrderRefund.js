@@ -16,18 +16,31 @@ const OrderRefund = () => {
               <button>3일</button>
               <button>7일</button>
               <button>1개월</button>
-              <input type="date"/>
-              {/* <FontAwesomeIcon icon="fa-solid fa-calendar-days" /> */} 
-              &nbsp; ~ 
-              {/* <FontAwesomeIcon icon="fa-solid fa-calendar-days" /> */}
-              &nbsp;  
-              <input type="date"/>
+              <input type="date"/> ~ <input type="date"/>
+            </span>
+            <span>주문자 아이디</span>
+            <span>
+            <input type="text" className="order_refund_box"/>
             </span>
           </li>
           <li>
-            <span>검색어</span>
+            <span>주문번호</span>
             <span>
               <input type="text" className="order_refund_box"/>
+            </span>
+            <span>주문자 휴대전화</span>
+            <span>
+            <input type="text" className="order_refund_box"/>
+            </span>
+          </li>
+          <li>
+            <span>주문자명</span>
+            <span>
+            <input type="text" className="order_refund_box"/>
+            </span>
+            <span>주문자 이메일</span>
+            <span>
+            <input type="text" className="order_refund_box"/>
             </span>
           </li>
         </ul>

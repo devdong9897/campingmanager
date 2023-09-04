@@ -4,9 +4,9 @@ import { ItemListWrapper } from '../css/itemlist-style'
 const ItemLIst = () => {
   return (
     <ItemListWrapper>
-      <h1>아이템 목록</h1>
         <div className='itemlist_wrapper'>
             <div className='itemlist_inner'>
+            <h1>아이템 목록</h1>
               <div className='itemlist_itempic'>
                 df
               </div>

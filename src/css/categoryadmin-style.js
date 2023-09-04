@@ -19,7 +19,7 @@ export const CategoryAdminWrapper = styled.div`
     }
     .category_admin_wrapper {
         .category_admin_top {
-            padding-bottom:50px;
+            margin-bottom:100px;
         }
         ul{
             width: 100%;
@@ -72,7 +72,7 @@ export const CategoryAdminWrapper = styled.div`
                         margin-bottom:15px;
                     }
                     button{
-                        padding: 5px 50px;
+                        padding: 5px 60px;
                         background-color:white;
                         text-align: center;
                         &:hover{
@@ -81,7 +81,10 @@ export const CategoryAdminWrapper = styled.div`
                     }
             }
                 .category_admin_add_left_bottom {
-                    margin-top:50px;
+                    margin-top:67px;
+                    button{
+                        margin-right:5px;
+                    }
                 }
                 .category_admin_add_middle {
                     float:left;
@@ -101,6 +104,7 @@ export const CategoryAdminWrapper = styled.div`
                         resize:none;
                         border-radius: 10px;
                         text-indent: 10px;
+                        padding-top:5px;
                     };
                 }   
                 .category_admin_add_right {
