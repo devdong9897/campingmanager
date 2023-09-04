@@ -1,7 +1,7 @@
 import React from 'react'
 import { ItemListWrapper } from '../css/itemlist-style'
 
-const ItemLIst = () => {
+const ItemList = () => {
   return (
     <ItemListWrapper>
         <div className='itemlist_wrapper'>
@@ -23,4 +23,4 @@ const ItemLIst = () => {
   )
 }
 
-export default ItemLIst
+export default ItemList

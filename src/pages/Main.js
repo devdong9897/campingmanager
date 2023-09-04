@@ -15,7 +15,7 @@ import CategoryAdmin from "../component/CategoryAdmin";
 import OrderRegistration from "../component/OrderRegistration";
 import ItemManage from "../component/ItemManage";
 import ItemStockManage from "../component/ItemStockManage";
-import ItemLIst from "../component/ItemList";
+import ItemList from "../component/ItemList";
 
 const Main = () => {
   return (
@@ -34,7 +34,7 @@ const Main = () => {
             <Route path="orderregistration" element={<OrderRegistration/>}/>
             <Route path="itemmanage" element={<ItemManage/>}/>
             <Route path="itemstockmanage" element={<ItemStockManage/>}/>
-            <Route path="itemlist" element={<ItemLIst/>}/>
+            <Route path="itemlist" element={<ItemList/>}/>
           </Route>
           <Route path="/boardmanage" element={<BoardManage />}></Route>
           <Route path="/postsboard" element={<PostsBoard />}></Route>
