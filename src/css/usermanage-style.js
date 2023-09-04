@@ -1,8 +1,15 @@
 import styled from "@emotion/styled";
 
 export const UserWrapper = styled.div`
-    width:100%;
+  width: 100%;
+  height: auto;
+  padding-top: 50px;
+  padding-bottom: 150px;
+  /* background-color: lightgray; */
+  .user_inner {
+    width: auto;
     height: auto;
+
     padding-top:50px;
     padding-bottom:150px;
     /* background-color: lightgray; */
@@ -56,7 +63,9 @@ export const UserWrapper = styled.div`
                     margin-left:10px;
                 }
             }
+          }
         }
+
         .user_top_button {
             margin:15px;
             text-align:center;
@@ -113,5 +122,7 @@ export const UserWrapper = styled.div`
                 }
             }
         }
+      }
     }
+  }
 `;

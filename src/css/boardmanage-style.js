@@ -4,23 +4,29 @@ export const Board = styled.div`
   width: 100%;
   height: auto;
   .board_inner {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     h2 {
       margin-bottom: 10px;
     }
     .notice_box {
+      display: flex;
+      flex-direction: row;
       width: 100%;
       height: 300px;
       margin-bottom: 20px;
       background: #fafafd;
       border: 1px solid #e5e5e5;
       .first_box {
+        margin-left: 50px;
+        flex: 1;
         p {
           margin: 10px 0px 0px 10px;
         }
         input {
-          width: 30%;
+          width: 60%;
           margin: 0px 0px 0px 10px;
           padding: 5px 0px 5px 15px;
           border-radius: 15px;
@@ -30,8 +36,29 @@ export const Board = styled.div`
           margin-top: 30px;
         }
         .announcement_input {
-          width: 30%;
+          width: 80%;
+          height: 60%;
           padding: 5px 0px 100px 15px;
+        }
+      }
+      .second_box {
+        p {
+          margin: 10px 10px 0px 10px;
+        }
+        button {
+          padding: 5px 50px;
+          background-color: white;
+          text-align: center;
+          &:hover {
+            background-color: #9DE8FF;
+          }
+        }
+      }
+      .chack_btn {
+        margin-top: 50px;
+        margin-right: 50px;
+        .bulletin_chack {
+          margin-top: 40px;
         }
       }
     }
@@ -177,6 +204,9 @@ export const BoardPosts = styled.div`
         margin-left: 50%;
         padding: 5px;
         border-radius: 5px;
+        &:hover {
+          background: #9AE7FF;
+        }
       }
     }
     .posts_list {
@@ -202,6 +232,9 @@ export const BoardPosts = styled.div`
           text-align: center;
           background: #fafafd;
           box-shadow: 0cm 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+        }
+        .list_bg {
+          background: #fff;
         }
       }
     }

@@ -48,35 +48,35 @@ const PostsBoard = () => {
           <button>검색</button>
         </div>
         <h2 className="posts_list">게시물 리스트</h2>
-        {/* dfdfsdfdsfsdfdsfdsfsdfdsfsdfdsf */}
+       
         <ul className="postslist_data">
           <li>
             <span>카테고리</span>
-            <span>공지</span>
+            <span className="list_bg">공지</span>
           </li>
           <li>
             <span>제목</span>
-            <span>공지사항이다</span>
+            <span className="list_bg">공지사항이다</span>
           </li>
           <li>
             <span>작성자</span>
-            <span>작성자다</span>
+            <span className="list_bg">작성자다</span>
           </li>
           <li>
             <span>작성일</span>
-            <span>작성일이다</span>
+            <span className="list_bg">작성일이다</span>
           </li>
           <li>
             <span>조회</span>
-            <span>조회다</span>
+            <span className="list_bg">조회다</span>
           </li>
           <li>
             <span>총 환불액</span>
-            <span>환불이다</span>
+            <span className="list_bg">환불이다</span>
           </li>
           <li>
             <span>처리상태</span>
-            <span>처리상태다</span>
+            <span className="list_bg">처리상태다</span>
           </li>
         </ul>
       </div>

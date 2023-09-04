@@ -15,7 +15,7 @@ export const CategoryAdminWrapper = styled.div`
         border:1px solid #000;
     }
     .category_add_btn:hover {
-        background-color:lightyellow;
+        background-color:#9DE8FF;
     }
     .category_admin_wrapper {
         .category_admin_top {
@@ -124,7 +124,7 @@ export const CategoryAdminWrapper = styled.div`
                         margin-top:10px;
                     }
                     button:hover {
-                        background-color: lightyellow;
+                        background-color: #9DE8FF;
                     }
                 }
             } 

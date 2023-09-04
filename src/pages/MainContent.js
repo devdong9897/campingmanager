@@ -6,7 +6,7 @@ const MainCotent = () => {
   return (
     <ContentMain>
       <div className="content_inner">
-        <h2>오늘의할일</h2>
+        <h2>오늘의 할일</h2>
         <ul className="miancontent_data">
           <li>
             <span>오늘 방문자</span>

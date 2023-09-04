@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 
+const path = process.env.PUBLIC_URL;
+
 export const Home = styled.div`
   position: fixed;
   top: 0px;
@@ -8,12 +10,21 @@ export const Home = styled.div`
   height: 100vh;
   background: #3e3e3e;
   font-weight: 700;
+  .header_logo {
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #fff;
+    background-image: url("${path}/images/header_logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
+  }
   .home_categories {
     display: flex;
     flex-direction: column;
     list-style: none;
     text-align: center;
-    margin-top: 100%;
+    margin-top: 25%;
     li {
       font-size: 30px;
       margin-top: 20px;
@@ -70,6 +81,26 @@ export const Home = styled.div`
       &:hover {
         color: red;
       }
+    }
+  }
+  .account_func {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    bottom: 50px;
+    .logout_btn {
+      display: flex;
+      gap: 10px;
+      border: none;
+      background: none;
+      font-family: "NanumSquare";
+      font-weight: bold;
+      font-size: 18px;
+      color: #fff;
     }
   }
 `;

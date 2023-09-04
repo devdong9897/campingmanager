@@ -9,6 +9,7 @@ const BoardManage = () => {
   const handleNoticeClick = () => {
     setIsNoticeClicked(!isNoticeClicked);
   };
+
   return (
     <Board>
       <div className="board_inner">
@@ -20,6 +21,17 @@ const BoardManage = () => {
               <input type="text" />
               <p className="announcement">게시판 안내글</p>
               <input type="text" className="announcement_input" />
+            </div>
+            <div className="second_box">
+              <div className="chack_btn">
+                <p>게시글 표시여부</p>
+                <button>표시</button>
+                <button>표시안함</button>
+                <p className="bulletin_chack">게시글 표시여부</p>
+                <button>표시</button>
+                <button>표시안함</button>
+                <button>표시안함</button>
+              </div>
             </div>
           </div>
         )}
