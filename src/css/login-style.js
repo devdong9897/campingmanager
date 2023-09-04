@@ -4,18 +4,21 @@ const path = process.env.PUBLIC_URL;
 
 export const LoginMain = styled.div`
   width: 100%;
-  height: auto;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .login_inner {
-    margin: 50px auto;
+    width: 425px;
+    margin-bottom: 125px;
     .login_logo {
       width: 100%;
       height: 200px;
       background-image: url("${path}/images/logo3.png");
       background-position: center;
       background-repeat: no-repeat;
-      background-size: 50%;
+      background-size: contain;
     }
     .login_title {
       text-align: center;
@@ -23,7 +26,9 @@ export const LoginMain = styled.div`
       color: #00c2ff;
     }
     .login_form {
-      div {
+      display: flex;
+      flex-direction: column;
+      .form_title {
         font-weight: 700;
         margin-top: 10px;
         margin-bottom: 5px;
@@ -33,35 +38,39 @@ export const LoginMain = styled.div`
         color: black;
       }
       input {
-        padding-top: 15px;
-        padding-right: 35%;
-        padding-bottom: 15px;
+        padding: 8px 15px;
+        border-radius: 10px;
+        border: none;
+        background: #cbe6f7;
         font-size: 20px;
       }
       .login_pas {
         margin-top: 30px;
       }
     }
-    .login_membership {
-      font-size: 13px;
-      .membership {
-        font-weight: 700;
-        margin-left: 5px;
-        color: #00c2ff;
-        cursor: pointer;
+    .help_account {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 15px 0px;
+      gap: 5px;
+      span {
+        display: flex;
+        justify-content: center;
       }
-      .login_find {
-        margin-left: 50px;
-        cursor: pointer;
+      .find_account {
+        display: flex;
+        gap: 5%;
+        justify-content: center;
       }
     }
     .login_btn {
-      width: 380px;
+      width: 100%;
       height: 60px;
       margin-top: 20px;
       font-size: 25px;
       font-weight: 700;
-      color: #fff;  
+      color: #fff;
       background: #2297e1;
       border-radius: 15px;
       border: none;
