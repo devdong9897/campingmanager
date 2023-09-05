@@ -1,8 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ContentMain } from "../css/maincontent-style";
 import MainChart from "../component/MainChart";
+import axios from "axios";
+import { getAdminMain } from "../api/adminFetch";
 
 const MainCotent = () => {
+  // 유저데이터목록
+  const [chartdata, setChartData] = useState([]);
+  // 유저데이터 수
+  const [chartlength, setchartlength] = useState("");
+  // 남자꺼
+  const [manList, setManList] = useState("");
+  // 여자꺼
+  const [womanList, setWomanList] = useState("");
+
+  // 차트데이터 불러오기
+  const UserChartDate = async () => {
+    try {
+      const data = await getAdminMain();
+      console.log("데이터 넘어옴?", data);
+      console.log("데이터 갯수?", data.length);
+      setChartData(data);
+      setchartlength(data.length);
+      resultPie(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const resultPie = data => {
+    const AllList = data.length;
+    const manData = data.filter(item => item.gender === 0);
+    const woman = data.filter(item => item.gender === 1);
+    const manDataLength = manData.length;
+    const womanDataLenght = woman.length;
+    console.log("전체데이터 갯수", AllList);
+    console.log("남자데이터 갯수", manDataLength);
+    console.log("여자데이터 갯수", womanDataLenght);
+    const manDataResult = manDataLength / AllList;
+    const womanDateResult = womanDataLenght / AllList;
+    console.log(manDataResult);
+    console.log(womanDateResult);
+  };
+
+  useEffect(() => {
+    UserChartDate();
+  }, []);
   return (
     <ContentMain>
       <div className="content_inner">
