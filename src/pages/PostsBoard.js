@@ -36,9 +36,7 @@ const PostsBoard = () => {
             <div className="data_columns">
               <select>
                 <option>제목</option>
-                <option>내용</option>
                 <option>작성자</option>
-                <option>상품명</option>
               </select>
               <input type="text" />
             </div>
@@ -48,7 +46,7 @@ const PostsBoard = () => {
           <button>검색</button>
         </div>
         <h2 className="posts_list">게시물 리스트</h2>
-       
+
         <ul className="postslist_data">
           <li>
             <span>카테고리</span>
@@ -69,14 +67,6 @@ const PostsBoard = () => {
           <li>
             <span>조회</span>
             <span className="list_bg">조회다</span>
-          </li>
-          <li>
-            <span>총 환불액</span>
-            <span className="list_bg">환불이다</span>
-          </li>
-          <li>
-            <span>처리상태</span>
-            <span className="list_bg">처리상태다</span>
           </li>
         </ul>
       </div>

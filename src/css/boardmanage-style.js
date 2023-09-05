@@ -184,6 +184,8 @@ export const BoardPosts = styled.div`
           padding-left: 20px;
           button {
             padding: 5px 12px;
+            border: 1px solid #828282;
+            border-radius: 10px;
           }
           input {
             padding: 5px;
