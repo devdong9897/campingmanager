@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { UserWrapper } from "../css/usermanage-style";
+import getUserList from "../api/userManageFetch";
 
 const UserManage = () => {
+  const [userList, setUserList] = useState([])
   // const [clientList, setClientList] = useState()
+
+  // 모든 유저 리스트 보기
+  const AllUserListData = async () => {
+    try {
+      const data = await getUserList()
+      console.log("데이터 들어오나",data)
+      setUserList(data.userList.list)
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+  // 모든 유저 리스트 호출
+  useEffect(() => {
+    AllUserListData()
+  },[])
+
   return (
     <UserWrapper>
       <div className="user_wrapper">
@@ -54,16 +73,18 @@ const UserManage = () => {
                 <span>주소</span>
                 <span>상세주소</span>
               </li>
-              <li>
-                <span>a</span>
-                <span>b</span>
-                <span>c</span>
-                <span>d</span>
-                <span>e</span>
-                <span>f</span>
-                <span>g</span>
-              </li>
-              
+              {userList.map((item, index) => (
+                <li key={index}>
+                  {/* onClick={e => onClickHandleUser} */}
+                  <span>{item.user_id}</span>
+                  <span>{item.name}</span>
+                  <span>{item.birth_date}</span>
+                  <span>{item.phone}</span>
+                  <span>{item.gender}</span>
+                  <span>{item.role}</span>
+                  <span>g</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
