@@ -15,6 +15,7 @@ export const ContentMain = styled.div`
       width: 100%;
       height: 80px;
       box-shadow: 0px 0px 0px 2px red inset;
+     
       li {
         width: 100%;
         display: flex;
@@ -41,7 +42,7 @@ export const ContentMain = styled.div`
             }
           }
           &:nth-child(2) {
-            height: 60%;
+            height: 110px;
             background: #fff;
           }
         }
@@ -50,7 +51,8 @@ export const ContentMain = styled.div`
     .shoppingmall {
       margin-top: 50px;
     }
-    .test {
+   
+    .main_chart {
       margin-top: 100px;
       width: 100%;
       height: 500px;    
@@ -61,8 +63,11 @@ export const ContentMain = styled.div`
         .pie_list {
           display: flex;
           justify-content: center;
-          width: 100%;
+          width: 85%;
           height: 100%;
+          margin-left: 100px;
+
+          
           li {
             display: flex;
             flex-direction: column;

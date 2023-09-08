@@ -6,7 +6,6 @@ import Main from './pages/Main';
 
 
 function App() {
-  // g하하하하
   return (
     <Routes>
       <Route path='/*' element={<Account />}></Route>

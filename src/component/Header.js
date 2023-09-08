@@ -18,11 +18,7 @@ const Header = () => {
   // const handleuser = () => {
   //   navigate("/main/ordermanage");
   // };
-  // 로그아웃 클릭시 처리하는 함수
-  const handleLogout = () => {
-    // 로그인 페이지로 이동
-    navigate("/");
-  };
+  // 로그아웃 클릭시 처리
   // // 중첩 라우트 선택 상태를 관리할 useState
   // const [selectedRoute, setSelectedRoute] = useState("");
   // const handleRouteChange = event => {

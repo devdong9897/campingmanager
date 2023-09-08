@@ -50,7 +50,7 @@ export const Board = styled.div`
           background-color: white;
           text-align: center;
           &:hover {
-            background-color: #9DE8FF;
+            background-color: #9de8ff;
           }
         }
       }
@@ -60,6 +60,11 @@ export const Board = styled.div`
         .bulletin_chack {
           margin-top: 40px;
         }
+      }
+      .save {
+        margin-top: 70px;
+        background: green;
+        border-radius: 10px;
       }
     }
     .mainboard_data {
@@ -85,7 +90,7 @@ export const Board = styled.div`
           text-align: center;
           background: #fafafd;
           box-shadow: 0cm 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-          &:nth-child(2) {
+          &:nth-child(3) {
             height: 85%;
             background: #fff;
           }
@@ -207,7 +212,7 @@ export const BoardPosts = styled.div`
         padding: 5px;
         border-radius: 5px;
         &:hover {
-          background: #9AE7FF;
+          background: #9ae7ff;
         }
       }
     }
