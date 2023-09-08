@@ -19,7 +19,7 @@ const MainCotent = () => {
   // main 오늘의 할일 state
   const [todayData, setTodayData] = useState({});
   // main 쇼핑몰 현황
-  const [shoppingData, setShoppingData] = useState([])
+  const [shoppingData, setShoppingData] = useState([]);
   // 차트데이터 불러오기
   const userChartDate = async () => {
     try {
@@ -47,19 +47,16 @@ const MainCotent = () => {
   };
 
   // 메인 쇼핑몰 현황 데이터
-  const userMainShopping = async() => {
+  const userMainShopping = async () => {
     try {
-      const data = await getShoppingMallData()
-      console.log("쇼핑몰현황 넘어오냐?", data)
-      setShoppingData(data)
-      
-    }catch(err) {
-      console.log(err)
+      const data = await getShoppingMallData();
+      console.log("쇼핑몰현황 넘어오냐?", data);
+      console.log("ㅇㅁㅈㅇㅁㅈㅇㅁㅈ", data.statistics);
+      setShoppingData(data.statistics);
+    } catch (err) {
+      console.log(err);
     }
-  }
-
-
-
+  };
 
   const resultPie = data => {
     const AllList = data.length;
@@ -139,26 +136,38 @@ const MainCotent = () => {
           />
         </div>
         <h2 className="shoppingmall">쇼핑몰 현황</h2>
+        <ul className="maincontent_colnum_title">
+          <li>날짜</li>
+          <li>주문</li>
+          <li>배송완료</li>
+          <li>환불완료</li>
+        </ul>
         <ul className="miancontent_data">
-          <li>
-            <span>날짜</span>
-            <span>{}</span>
-            
-          </li>
-          <li>
-            <span>주문</span>
-            <span></span>
-          </li>
-
-          <li>
-            <span>배송완료</span>
-            <span></span>
-          </li>
-          <li>
-            <span>환불완료</span>
-            <span></span>
-           
-          </li>
+          {shoppingData.map((item, index) => (
+            <li key={index}>
+              <div className="list_column_date">
+                <span>{item.date}</span>
+              </div>
+              <div className="list_column">
+                <span>
+                  <p>{item.orderTotalPrice}원</p>
+                  <p>({item.refundTotalCount}건)</p>
+                </span>
+              </div>
+              <div className="list_column">
+                <span>
+                  <p>{item.shippingCompleteTotalPrice}원</p>
+                  <p>({item.shippingCompleteTotalCount}건)</p>
+                </span>
+              </div>
+              <div className="list_column">
+                <span>
+                  <p>{item.refundTotalPrice}원</p>
+                  <p>({item.refundTotalCount}건)</p>
+                </span>
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
     </ContentMain>

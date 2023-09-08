@@ -510,6 +510,7 @@ const getShoppingMallData = async () => {
     const result = res.data;
     console.log("shopping 통계 요청완료");
     console.log(result);
+    return result;
   } catch (err) {
     console.log(err);
   }
