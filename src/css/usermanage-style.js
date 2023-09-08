@@ -68,48 +68,50 @@ export const UserWrapper = styled.div`
       }
     }
     .user_list_bottom {
-      width: 100%;
-      height: auto;
-      background-color: white;
-      box-shadow: 2px 2px 2px #999;
-      ul {
+      .user_list_bottom_inner {
         width: 100%;
         height: auto;
-        overflow: hidden;
-        li {
-          float: left;
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        background-color: white;
+        box-shadow: 2px 2px 2px #999;
+        ul {
           width: 100%;
           height: auto;
-          text-align: center;
-          span {
+          overflow: hidden;
+          li {
             float: left;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
             width: 100%;
             height: auto;
-            line-height: 30px;
-            border: 1px solid #bbb;
-            border-right: none;
-            border-bottom: none;
+            text-align: center;
+            span {
+              float: left;
+              width: 100%;
+              height: auto;
+              line-height: 30px;
+              border: 1px solid #bbb;
+              border-right: none;
+              border-bottom: none;
+            }
+            span:last-child {
+              border-right: 1px solid #000;
+            }
           }
-          span:last-child {
-            border-right: 1px solid #000;
+          li:first-child {
+            background-color: lightgray;
+          }
+          li:last-child {
+            border-bottom: 1px solid #000;
           }
         }
-        li:first-child {
-          background-color: lightgray;
-        }
-        li:last-child {
-          border-bottom: 1px solid #000;
-        }
-      }
-      .user_bottom_button {
-        margin: 15px 0;
-        text-align: center;
-        button {
-          padding: 5px 20px;
-          background-color: lightgray;
-          border: none;
+        .user_bottom_button {
+          margin: 15px 0;
+          text-align: center;
+          button {
+            padding: 5px 20px;
+            background-color: lightgray;
+            border: none;
+          }
         }
       }
     }

@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { OrderRegistrationWrapper } from '../css/orderregistration-style'
+import { itemAdd } from '../api/itemFetch'
 
 const OrderRegistration = () => {
+  const [orderResi, setOrderResi] = useState([])
+
+  // 아이템 추가
+  const handleClickItem = async () => {
+    try{
+      await itemAdd()
+      console.log("아이템 추가")
+    }catch(err){
+      console.log(err)
+    }
+  }
+
   return (
     <OrderRegistrationWrapper>
-        <div className='orderregistration_wrapper'>
-        <div className='itemmanage_inner'>
+          <div className='orderregistration_wrapper'>
+          <div className='itemmanage_inner'>
             <div className='orderregistration_left'>
-                <h2>상품명</h2>
+                <h2>카테고리 명</h2>
                 <input type="text"/>
-                <h2>카테고리 설정</h2>
+                <h2>카테고리 분류</h2>
                   <select>
                     <option>분류</option>
                     <option>축산물</option>
@@ -18,7 +31,7 @@ const OrderRegistration = () => {
                     <option>밀키트</option>
                     <option>농산물</option>
                   </select>
-                <h2>상품가격</h2>
+                <h2>이건뭐야</h2>
                 <input type="text"/>
                 <h2>판매상태</h2>
                 <button>판매</button>
@@ -28,14 +41,15 @@ const OrderRegistration = () => {
             </div>
 
             <div className='orderregistration_right'>
-                <h2>상품 메인 이미지</h2>
+                <h2>{}</h2>
                 <div className='orderregistration_right_innerbox'>sdf</div>
                 <h2>상품 상세 이미지</h2>
                 <div className='orderregistration_right_innerbox'>df</div>
-              <button>상품 등록</button>
+              <button onClick={handleClickItem}>상품 등록</button>
             </div>
             </div>
-        </div>
+          </div>
+
     </OrderRegistrationWrapper>
   )
 }
