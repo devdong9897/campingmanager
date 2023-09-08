@@ -4,17 +4,22 @@ import getUserList from "../api/userManageFetch";
 
 const UserManage = () => {
   const [userList, setUserList] = useState([])
-  // const [clientList, setClientList] = useState()
+  const [isOpen, setIsOpen] = useState(false)
+  const [clientList, setClientList] = useState()
 
   // 모든 유저 리스트 보기
   const AllUserListData = async () => {
     try {
       const data = await getUserList()
       console.log("데이터 들어오나",data)
-      setUserList(data.userList.list)
+      setUserList(data)
     }catch(err){
       console.log(err)
     }
+  }
+
+  const handleClickShow = () => {
+    setIsOpen(true)
   }
 
   // 모든 유저 리스트 호출
@@ -57,35 +62,35 @@ const UserManage = () => {
             </ul>
           </div>
             <div className="user_top_button">
-              <button>검색</button>
+              <button onClick={handleClickShow}>검색</button>
             </div>
           
-
-          <h1>회원 목록</h1>
           <div className="user_list_bottom">
-            <ul>
-              <li>
-                <span>이름</span>
-                <span>성별</span>
-                <span>생일</span>
-                <span>휴대전화</span>
-                <span>Email</span>
-                <span>주소</span>
-                <span>상세주소</span>
-              </li>
-              {userList.map((item, index) => (
-                <li key={index}>
-                  {/* onClick={e => onClickHandleUser} */}
-                  <span>{item.user_id}</span>
-                  <span>{item.name}</span>
-                  <span>{item.birth_date}</span>
-                  <span>{item.phone}</span>
-                  <span>{item.gender}</span>
-                  <span>{item.role}</span>
-                  <span>g</span>
+            <h1>회원 목록</h1>
+            <div className="user_list_bottom_inner">
+              <ul>
+                <li>
+                  <span>아이디</span>
+                  <span>닉네임</span>
+                  <span>생년월일</span>
+                  <span>휴대전화</span>
+                  <span>성별</span>
+                  <span>유저형태</span>
                 </li>
-              ))}
-            </ul>
+                {userList.map((item, index) => (
+                  <li key={index}>
+                    {/* onClick={e => onClickHandleUser} */}
+                    <span>{item.user_id}</span>
+                    <span>{item.name}</span>
+                    <span>{item.birth_date}</span>
+                    <span>{item.phone}</span>
+                    <span>{item.gender === "0" ? ("남자"):("여자")}</span>
+                    <span>{item.role}</span>
+                  </li>
+                ))}
+                
+              </ul>
+            </div>
           </div>
         </div>
       </div>

@@ -1,7 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ItemListWrapper } from '../css/itemlist-style'
+import { itemEdit } from '../api/itemFetch'
 
 const ItemList = () => {
+  const [itemListEdit, setItemListEdit] = useState()
+
+  // 아이템 수정
+  const handleClickEdit = async () => {
+    try {
+      const iitem = {
+        iitem:1,
+        iitemCategory:1,
+        name:"상품명",
+        pic:"",
+        price:10000,
+        stock:3,
+        status:0,
+        picUrl:""
+      }
+      await itemEdit(iitem)
+      setItemListEdit()
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+  // 아이템 삭제
+  const handleDelete = () => {
+    // try {
+    //   const deleteItem = 
+    // }
+  }
+  useEffect(() => {
+
+  },[])
   return (
     <ItemListWrapper>
         <div className='itemlist_wrapper'>
@@ -17,8 +49,8 @@ const ItemList = () => {
                 <p>상품 가격</p>
                 <p>상품 판매여부</p>
               </div>
-                <button>수정</button>
-                <button>삭제</button>
+                <button onClick={handleClickEdit}>수정</button>
+                <button onClick={handleDelete}>삭제</button>
             </div>
         </div>
     </ItemListWrapper>

@@ -33,7 +33,7 @@ export const CategoryAdminWrapper = styled.div`
                 height: auto;
                 text-align: center;
                 border:1px solid #000;
-                grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
+                grid-template-columns:1fr 1fr 1fr 1fr;
                 span{
                     float:left;
                     width: 100%;

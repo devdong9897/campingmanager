@@ -62,13 +62,24 @@ export const ItemManageWrapper = styled.div`
                     color:white;
                 }
             }
-            
         }
         .itemmanage_bottom {
             margin-top:100px;
             width: 100%;
             height:auto;
             overflow:hidden;
+            .itemmanage_bottom_category {
+                padding-bottom : 10px;
+                button{
+                    margin-right:10px;
+                    padding:5px 10px;
+                    border:1px solid #000;
+                    background-color: white;
+                }
+                button:hover{
+                    background-color: lightyellow;
+                }
+            }
             ul{
             width: 100%;
             height: auto;
@@ -81,7 +92,7 @@ export const ItemManageWrapper = styled.div`
                 height: auto;
                 text-align: center;
                 border:1px solid #000;
-                grid-template-columns:0.5fr 1.5fr 1fr 1.5fr 1fr ;
+                grid-template-columns:0.5fr 3fr 0.5fr 0.5fr 1.5fr 0.5fr;
                 
                 span{
                     float:left;

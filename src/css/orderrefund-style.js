@@ -24,7 +24,7 @@ export const OrderRefundWrapper = styled.div`
         li {
           float:left;
           display: grid;
-          grid-template-columns:1fr 2fr 1fr 2fr;
+          grid-template-columns:1fr 4fr;
           width: 100%;
           height: auto;
           border: 1px solid #ccc;
@@ -42,41 +42,17 @@ export const OrderRefundWrapper = styled.div`
             border:1px solid blue;
           }
         }
-        li:first-child span:nth-child(2) {
-          margin:0 auto;
-        }
-        li:first-child,
-        li:nth-child(2) {
-          border-bottom: none;
-          span:first-child,
-          span:last-child
-          {
-            width:auto;
-            height: auto;
-          }
-
-        }
-        li:nth-of-type(1) span:nth-of-type(4) input,
-        li:nth-of-type(2) span:nth-of-type(2) input,
-        li:nth-of-type(2) span:nth-of-type(4) input,
-        li:nth-of-type(3) span:nth-of-type(2) input,
-        li:nth-of-type(3) span:nth-of-type(4) input{
-          width:100%;
-          height: 30px;
-          float:left;
-          background-color: lightgray;
-          border:none;
-          background-color: white;
-          text-indent:10px;
-        }
-        li:nth-of-type(1) span:first-child,
-        li:nth-of-type(1) span:nth-child(3),
-        li:nth-of-type(2) span:first-child,
-        li:nth-of-type(2) span:nth-child(3),
-        li:nth-of-type(3) span:first-child,
-        li:nth-of-type(3) span:nth-child(3){
+        li:first-child span:first-child,
+        li:nth-child(2) span:first-child {
           background-color: lightgray;
           text-align: center;
+        }
+        li:first-child span:nth-of-type(2),
+        li:nth-child(2) span:nth-of-type(2){
+          margin-left:20px;
+          .searchbox {
+            margin-left:10px;
+          }
         }
       }
       div{
@@ -98,7 +74,7 @@ export const OrderRefundWrapper = styled.div`
       margin-top:150px;
       li {
         display: grid;
-        grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         width: 100%;
         height: auto;
         line-height: 30px;
