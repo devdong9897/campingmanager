@@ -1,7 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BoardPosts } from "../css/boardmanage-style";
+import {
+  getSevenDayData,
+  getThreeData,
+  getTodayDate,
+} from "../api/adminboardFetch";
 
 const PostsBoard = () => {
+  // 게시물관리 날짜
+  const [boardData, setBoardData] = useState([]);
+
+  // 게시물 오늘 날짜
+  const boardTodayData = async () => {
+    try {
+      const data = await getTodayDate();
+      console.log("게시물 오늘날짜 데이터 들어오냐고?", data);
+      setBoardData(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // 게시물 3일 날짜
+  const handleThreeData = async () => {
+    try {
+      const data = await getThreeData();
+      console.log("3일 머시기", data);
+      setBoardData(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // 게시물 7일 날짜
+  const handleSevenData = async () => {
+    try {
+      const data = await getSevenDayData();
+      console.log("7일 머시기", data);
+      setBoardData(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    boardTodayData();
+  }, []);
   return (
     <BoardPosts>
       <div className="posts_inner">
@@ -10,9 +54,9 @@ const PostsBoard = () => {
           <li>
             <span>작성일</span>
             <div className="data_columns">
-              <button>오늘</button>
-              <button>3일</button>
-              <button>7일</button>
+              <button onClick={boardTodayData}>오늘</button>
+              <button onClick={handleThreeData}>3일</button>
+              <button onClick={handleSevenData}>7일</button>
               <button>1개월</button>
               <input type="date"></input>
               <input type="date"></input>
