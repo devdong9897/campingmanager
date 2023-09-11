@@ -1,3 +1,4 @@
+
 import axios from "axios";
 
 const getTodayDate = async () => {
@@ -77,3 +78,4 @@ export {
   getMonthData,
   getBoardListData,
 };
+

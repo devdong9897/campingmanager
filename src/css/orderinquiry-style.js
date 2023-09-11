@@ -22,24 +22,24 @@ export const OrderInquiryWrapper = styled.div`
         height: auto;
         overflow: hidden;
         li {
-          float:left;
+          float: left;
           display: grid;
-          grid-template-columns:1fr 4fr;
+          grid-template-columns: 1fr 4fr;
           width: 100%;
           height: auto;
           border: 1px solid #ccc;
           line-height: 30px;
-          button{
-            padding:1px 5px;
-            margin-right:8px;
+          button {
+            padding: 1px 5px;
+            margin-right: 8px;
             background-color: white;
-            border:1px solid #ddd;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            margin-top:6px;
+            margin-top: 6px;
           }
-          button:hover{
-            color:blue;
-            border:1px solid blue;
+          button:hover {
+            color: blue;
+            border: 1px solid blue;
           }
         }
         li:first-child span:first-child,
@@ -48,45 +48,77 @@ export const OrderInquiryWrapper = styled.div`
           text-align: center;
         }
         li:first-child span:nth-of-type(2),
-        li:nth-child(2) span:nth-of-type(2){
-          margin-left:20px;
+        li:nth-child(2) span:nth-of-type(2) {
+          margin-left: 20px;
           .searchbox {
-            margin-left:10px;
+            margin-left: 10px;
           }
         }
       }
-      div{
-        text-align:center;
-        margin-top:15px;
-        margin-bottom:15px;
-        button{
-          padding:3px 15px;
-          border:none;
+      div {
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        button {
+          padding: 3px 15px;
+          border: none;
           border-radius: 5px;
-          font-weight:bold;
+          font-weight: bold;
         }
       }
     }
-    .order_inquiry_bottom{
+    .order_inquiry_bottom {
       width: 100%;
       height: auto;
       box-shadow: 2px 2px 2px #999;
-      margin-top:150px;
+      margin-top: 150px;
       li {
-        display: grid;
-        grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        display: flex;
+        width: 100%;
+        height: auto;
+        line-height: 30px;
+        text-align: center;
+        .list {
           width: 100%;
-          height: auto;
-          line-height: 30px;
-          text-align: center;
-          span{
-            border:1px solid #bbb;
-            width:100%;
-            border-right:none;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+        span {
+          border: 1px solid #bbb;
+          width: 100%;
+          border-right: none;
+        }
+        .changeOrder {
+          cursor: pointer;
+          &:hover {
+            background: #bbb;
           }
+        }
+        .orerChange_box {
+          display: flex;
+          justify-content: flex-end;
+          gap: 10px;
+          height: 30px;
+          span {
+            border: none;
+            width: auto;
+          }
+          .change_btn {
+            padding: 0px 10px;
+          }
+        }
+      }
+      .empty_box {
+        width: 100%;
+        padding: 20px 0px;
+        text-align: center;
+      }
+      .parents_list {
+        display: flex;
+        flex-direction: column;
       }
       li:first-child span {
-        background-color:lightgray;
+        background-color: lightgray;
       }
     }
   }
