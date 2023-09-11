@@ -11,6 +11,65 @@ export const Board = styled.div`
     h2 {
       margin-bottom: 10px;
     }
+    .category_explanation {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 200px;
+      margin-bottom: 20px;
+      background: #fafafd;
+      border: 1px solid #e5e5e5;
+      .category_text {
+        margin-top: 50px;
+        margin-left: 40px;
+      }
+      .test_title {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+      }
+      input {
+        position: absolute;
+        top: 80px;
+        right: 50px;
+        width: 200px;
+        height: 30px;
+        border-radius: 15px;
+        border: 1px solid black;
+      }
+      .add_btn {
+        position: absolute;
+        right: 60px;
+        top: 150px;
+        button {
+          margin-left: 15px;
+          padding: 0 20px 0 20px;
+          border-radius: 5px;
+          border: 1px solid black;
+        }
+      }
+    }
+    .bottom_btn {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 35px;
+
+      button {
+        margin-top: 10px;
+      }
+      .delete_btn {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid black;
+      }
+      .add_btn {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid black;
+      }
+    }
     .notice_box {
       display: flex;
       flex-direction: row;
@@ -115,28 +174,6 @@ export const Board = styled.div`
           border-radius: 5px;
           border: 1px solid black;
         }
-      }
-    }
-
-    .bottom_btn {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      height: 40px;
-      background: #fff;
-      box-shadow: 0cm 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-      button {
-        margin-top: 10px;
-      }
-      .delete_btn {
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid black;
-      }
-      .add_btn {
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid black;
       }
     }
   }

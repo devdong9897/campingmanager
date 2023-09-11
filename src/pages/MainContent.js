@@ -20,6 +20,9 @@ const MainCotent = () => {
   const [todayData, setTodayData] = useState({});
   // main 쇼핑몰 현황
   const [shoppingData, setShoppingData] = useState([]);
+  // main 쇼핑몰 TodayOrder
+  const [shoppingOrder, setShoppingOder] = useState({});
+  const [shoppingAverage, setShoppingAverage] = useState({})
   // 차트데이터 불러오기
   const userChartDate = async () => {
     try {
@@ -53,6 +56,8 @@ const MainCotent = () => {
       console.log("쇼핑몰현황 넘어오냐?", data);
       console.log("ㅇㅁㅈㅇㅁㅈㅇㅁㅈ", data.statistics);
       setShoppingData(data.statistics);
+      setShoppingOder(data.sevenSum);
+      setShoppingAverage(data.sevenAverage)
     } catch (err) {
       console.log(err);
     }
@@ -98,7 +103,7 @@ const MainCotent = () => {
     <ContentMain>
       <div className="content_inner">
         <h2>오늘의 할일</h2>
-        <ul className="miancontent_data">
+        <ul className="today_data">
           <li>
             <span>회원 수</span>
             <span>{todayData.userCount}</span>
@@ -168,6 +173,59 @@ const MainCotent = () => {
               </div>
             </li>
           ))}
+
+          <li className="miancontent_data">
+            <div className="list_column" style={{ color: "blue" }}>
+              <span>
+                <p>최근 7일 평균</p>
+              </span>
+            </div>
+            <div className="list_column" style={{ color: "blue" }}>
+              <span>
+                <p>{shoppingOrder.orderTotalPrice}원</p>
+                <p>({shoppingOrder.orderTotalCount}건)</p>
+              </span>
+            </div>
+            <div className="list_column" style={{ color: "blue" }}>
+              <span>
+                <p>{shoppingOrder.shippingCompleteTotalPrice}원</p>
+                <p>({shoppingOrder.shippingCompleteTotalCount}건)</p>
+              </span>
+            </div>
+            <div className="list_column" style={{ color: "blue" }}>
+              <span>
+                <p>{shoppingOrder.refundTotalPrice}원</p>
+                <p>({shoppingOrder.refundTotalCount}건)</p>
+              </span>
+            </div>
+          </li>
+          <li className="miancontent_data">
+            <div className="list_column">
+              <span className="maincontent_data">
+                <p>최근 7일 합계</p>
+              </span>
+            </div>
+            <div className="list_column">
+              <span>
+                <p>{shoppingAverage.orderTotalPrice}</p>
+                <p>({shoppingAverage.orderTotalCount}건)</p>
+              </span>
+            </div>
+            <div className="list_column">
+              <span>
+                <p>{shoppingAverage.shippingCompleteTotalPrice}</p>
+                <p>{shoppingAverage.shippingCompleteTotalCount}</p>
+              </span>
+            </div>
+            <div className="list_column">
+              <span>
+                <p>{shoppingAverage.refundTotalPrice}</p>
+                <p>{shoppingAverage.refundTotalCount}</p>
+              </span>
+            </div>
+          </li>
+
+          
         </ul>
       </div>
     </ContentMain>
