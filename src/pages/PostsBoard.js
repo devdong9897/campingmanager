@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BoardPosts } from "../css/boardmanage-style";
 import {
+  getBoardListData,
+  getMonthData,
   getSevenDayData,
   getThreeData,
   getTodayDate,
@@ -9,6 +11,8 @@ import {
 const PostsBoard = () => {
   // 게시물관리 날짜
   const [boardData, setBoardData] = useState([]);
+  // 게시물 리스트
+  const [boardListData, setBoardListData] = useState([]);
 
   // 게시물 오늘 날짜
   const boardTodayData = async () => {
@@ -43,9 +47,33 @@ const PostsBoard = () => {
     }
   };
 
+  // 게시물 한달 날짜
+  const handleMonthData = async () => {
+    try {
+      const data = await getMonthData();
+      console.log("한달 데이터 들어오냐?", data);
+      setBoardData(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // 게시판 공지 리스트
+  const userNoticeList = async () => {
+    try {
+      const data = await getBoardListData();
+      console.log("공지리스트데이터 들어오냐?", data);
+      setBoardListData(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     boardTodayData();
+    userNoticeList();
   }, []);
+
   return (
     <BoardPosts>
       <div className="posts_inner">
@@ -57,7 +85,7 @@ const PostsBoard = () => {
               <button onClick={boardTodayData}>오늘</button>
               <button onClick={handleThreeData}>3일</button>
               <button onClick={handleSevenData}>7일</button>
-              <button>1개월</button>
+              <button onClick={handleMonthData}>1개월</button>
               <input type="date"></input>
               <input type="date"></input>
             </div>
@@ -90,7 +118,6 @@ const PostsBoard = () => {
           <button>검색</button>
         </div>
         <h2 className="posts_list">게시물 리스트</h2>
-
         <ul className="postslist_data">
           <li>
             <span>카테고리</span>
