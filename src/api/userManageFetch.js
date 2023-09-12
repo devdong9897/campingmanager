@@ -13,6 +13,20 @@ const getUserList = async () => {
     }
     return []
 }
+
+// 유저 한명 검색하기
+export const getOneUserList = async () => {
+  try {
+    const res = await axios.get(`/api/admin/manage/users`)
+    const result = res.data;
+    console.log("유저 한명!!! 한명만 들어와!!!")
+    return result
+  }catch(err) {
+    console.log(err)
+  }
+  return []
+}
+
 export default getUserList
 
 /*

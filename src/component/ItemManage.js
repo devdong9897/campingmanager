@@ -7,7 +7,10 @@ const ItemManage = () => {
     const [searchList, setSearchList] = useState([])
     const [searchKeyword, setSearchKeyword] = useState("")
 
-    const ItemSearchList = async () => {
+    // 아이템 검색
+
+    // 아이템 검색리스트
+    const itemSearchList = async () => {
         try {
             const data = await getItemSearch()
             console.log("아이템 검색 리스트", data)
@@ -18,12 +21,18 @@ const ItemManage = () => {
     }
 
     // 개별 검색
-    // const handleClickSearch = async event => {
-    //     setSearchKeyword(event.target.value)
+    // const handSearch = async event => {
+    //     event.preventDefault()
+    //     try {
+
+    //     }catch(err){
+    //         console.log(err)
+    //     }
+    //     // setSearchKeyword(event.target.value)
     // }
 
     useEffect(() => {
-        ItemSearchList()
+        itemSearchList()
     },[])
 
   return (
@@ -60,12 +69,15 @@ const ItemManage = () => {
                         </li>
                     </ul>
                     <div>
-                        <button>검색</button>
+                        <button
+                            // onClick={handSearch}
+                        >검색</button>
                     </div>
                 </div>
 
             <div className='itemmanage_bottom'>
                 <div className='itemmanage_bottom_category'>
+                    <button>판매순</button>
                     <button>최신순</button>
                     <button>오래된순</button>
                     <button>높은가격순</button>

@@ -3,13 +3,30 @@ import { OrderRegistrationWrapper } from '../css/orderregistration-style'
 import { itemAdd } from '../api/itemFetch'
 
 const OrderRegistration = () => {
+  const [addListData, setAddListData] = useState([])
+  const [updatedData, setUpdatedData] = useState({})
   const [orderResi, setOrderResi] = useState([])
+  const [oderCategory, setOrderCategory] = useState()
+  const [orderName, setOrderName] = useState()
+  const [orderPrice, setOrderPrice] = useState()
+  const [orderStatus, setOrderStatus] = useState()
 
   // 아이템 추가
   const handleClickItem = async () => {
     try{
-      await itemAdd()
+      const requestData = {
+        iitemCategory: 0, 
+        name: "string",   
+        pic: "string",    
+        price: 0,         
+        info: "string",   
+        stock: 0,         
+        status: 0,        
+        picUrl: ["string"]
+    };
+      await itemAdd(requestData)
       console.log("아이템 추가")
+      setAddListData("")
     }catch(err){
       console.log(err)
     }
@@ -17,10 +34,11 @@ const OrderRegistration = () => {
 
   return (
     <OrderRegistrationWrapper>
+              
           <div className='orderregistration_wrapper'>
           <div className='itemmanage_inner'>
             <div className='orderregistration_left'>
-                <h2>카테고리 명</h2>
+                  <h2>카테고리 명</h2>
                 <input type="text"/>
                 <h2>카테고리 분류</h2>
                   <select>
@@ -47,8 +65,10 @@ const OrderRegistration = () => {
                 <div className='orderregistration_right_innerbox'>df</div>
               <button onClick={handleClickItem}>상품 등록</button>
             </div>
+                
             </div>
           </div>
+                
 
     </OrderRegistrationWrapper>
   )

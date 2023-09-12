@@ -16,6 +16,7 @@ const OrderInquiry = () => {
   const [recent, setRecent] = useState({});
 
   // 전체 주문 조회 리스트 보기
+
   const handleOrderList = async () => {
     const sandData = {
       startDate: startDay,
@@ -108,6 +109,7 @@ const OrderInquiry = () => {
     setOrderState(false);
   };
   useEffect(() => {
+
     handleOrderList();
   }, []);
   return (

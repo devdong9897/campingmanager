@@ -57,23 +57,24 @@ const Header = () => {
             <li>
               <Link to="/main/productmanage/categoryadmin">카테고리 관리</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/main/productmanage/orderregistration">
                 카테고리 등록
               </Link>
-            </li>
+            </li> */}
             <li>
-              <Link to="/main/productmanage/itemmanage">상품관리</Link>
+              <Link to="/main/productmanage/itemmanage">상품 관리</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/main/productmanage/itemstockmanage">
                 상품 재고 관리
               </Link>
-            </li>
+            </li> */}
+            {/* <li>
+              <Link to="/main/productmanage/itemlist">상품 목록</Link>
+            </li> */}
             <li>
-              <Link to="/main/productmanage/itemlist">
-                상품 목록
-              </Link>
+              <Link to="/main/productmanage/itemlist">추천아이템 관리</Link>
             </li>
           </ul>
         </li>

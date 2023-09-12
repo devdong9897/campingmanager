@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { UserWrapper } from "../css/usermanage-style";
-import getUserList from "../api/userManageFetch";
+import getUserList, { getOneUserList } from "../api/userManageFetch";
 
 const UserManage = () => {
   const [userList, setUserList] = useState([])
+  const [oneUserList, setOneUserList] = useState([])
   const [isOpen, setIsOpen] = useState(false)
-  const [clientList, setClientList] = useState()
 
   // 모든 유저 리스트 보기
   const AllUserListData = async () => {
@@ -22,9 +22,21 @@ const UserManage = () => {
     setIsOpen(true)
   }
 
+  // 유저 한명 리스트 보기
+  const OneUserListData = async () => {
+    try {
+      const data = await getOneUserList()
+      console.log("준비됐어 데이터?", data)
+      setOneUserList(data)
+    }catch(err){
+      console.log(err)
+    }
+  }
+
   // 모든 유저 리스트 호출
   useEffect(() => {
     AllUserListData()
+    OneUserListData()
   },[])
 
   return (
