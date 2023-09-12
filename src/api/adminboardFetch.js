@@ -60,6 +60,18 @@ const getBoardListData = async () => {
   return [];
 };
 
+const getTotalListData = async () => {
+  try {
+    const res = await axios.get("/api/community/list");
+    const result = res.data;
+    console.log("게시글 전체리스트 요청완료", result);
+    return result;
+  } catch (err) {
+    console.log(err);
+  }
+  return []
+};
+
 // const postBasket = async iitem => {
 //   try {
 //     const res = await axios.post(`/api/cart`, {
@@ -77,4 +89,5 @@ export {
   getSevenDayData,
   getMonthData,
   getBoardListData,
+  getTotalListData
 };

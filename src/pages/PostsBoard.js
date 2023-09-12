@@ -6,13 +6,14 @@ import {
   getSevenDayData,
   getThreeData,
   getTodayDate,
+  getTotalListData,
 } from "../api/adminboardFetch";
-import { text } from "@fortawesome/fontawesome-svg-core";
 
 const PostsBoard = () => {
   // 게시물 리스트
   const [noticeState, setNoticeState] = useState(true);
   const [nomalBoardData, setNomalBoardData] = useState([]);
+  // 공지리스트 데이터
   const [boardListData, setBoardListData] = useState([]);
 
   // 게시물 오늘 날짜
@@ -24,6 +25,14 @@ const PostsBoard = () => {
   //     } else if (item.i)
   //   });
   // };
+  const toTalListData = async () => {
+    try {
+      const data = await getTotalListData();
+      console.log("전체 게시물리스트", data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const boardTodayData = async () => {
     try {
@@ -95,6 +104,7 @@ const PostsBoard = () => {
   useEffect(() => {
     // boardTodayData();
     userNoticeList();
+    toTalListData();
   }, []);
 
   return (
@@ -180,23 +190,21 @@ const PostsBoard = () => {
                 <li>조회</li>
               </ul>
               {nomalBoardData ? (
-              <>
-                {nomalBoardData.map((item, index) => (
-                  <div className="list_pack" key={index}>
-                    <li>{item.icategory}</li>
-                    <li>
-                      카테고리(작성)
-                    </li>
-                    <li>{item.title}</li>
-                    <li>{item.name}</li> 
-                    <li>{item.createdat}</li> 
-                    <li>{item.boardview}</li> 
-                  </div>
-                ))}
-              </>
-            ) : (
-              ""
-            )}
+                <>
+                  {nomalBoardData.map((item, index) => (
+                    <div className="list_pack" key={index}>
+                      <li>{item.icategory}</li>
+                      <li>카테고리(작성)</li>
+                      <li>{item.title}</li>
+                      <li>{item.name}</li>
+                      <li>{item.createdat}</li>
+                      <li>{item.boardview}</li>
+                    </div>
+                  ))}
+                </>
+              ) : (
+                ""
+              )}
             </ul>
           </>
         )}
