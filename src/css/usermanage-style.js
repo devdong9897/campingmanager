@@ -52,6 +52,10 @@ export const UserWrapper = styled.div`
             height: 100%;
           }
         }
+        li:nth-of-type(2) span:nth-of-type(2) input,
+        li:nth-of-type(3) span input {
+          width: 100%;
+        }
         li:first-child span:nth-of-type(4) input:last-child {
           margin-left: 10px;
         }

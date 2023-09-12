@@ -8,7 +8,7 @@ const OrderInquiry = () => {
   // const iorder = searchParams.get("iorder")
 
   // 전체 주문 조회 리스트 보기
-  const AllOrderList = async () => {
+  const allOrderList = async () => {
     try {
       const data = await getOrderList()
       console.log("전체주문조회 조회되나?", data)
@@ -19,7 +19,7 @@ const OrderInquiry = () => {
   }
 
   useEffect(() => {
-    AllOrderList()
+    allOrderList()
   },[])
   return (
     <OrderInquiryWrapper>

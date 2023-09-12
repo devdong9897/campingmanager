@@ -7,7 +7,7 @@ const OrderRefund = () => {
   const [orderRefund, setOrderRefund] = useState([])
   const params = useParams()
 
-  const OrderRefundList = async () => {
+  const orderRefundList = async () => {
     try {
       const data = await getOrderRefund(params)
       console.log("환불관리 데이터 들어오나",data)
@@ -18,7 +18,7 @@ const OrderRefund = () => {
   }
 
   useEffect(() => {
-    OrderRefundList()
+    orderRefundList()
   },[])
 
   return (
