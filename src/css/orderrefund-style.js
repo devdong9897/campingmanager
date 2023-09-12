@@ -55,6 +55,11 @@ export const OrderRefundWrapper = styled.div`
           }
         }
       }
+      .note{
+        width: 100%;
+        height: auto;
+        text-align: center;
+      }
       div{
         text-align:center;
         margin-top:15px;
@@ -67,17 +72,48 @@ export const OrderRefundWrapper = styled.div`
         }
       }
     }
-    .order_refund_bottom{
+    .order_refund_result{
+      width: 100%;
+      height: auto;
+      .order_refund_title{
+        width: 100%;
+        background-color: lightgray;;
+        li{
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+          text-align: center;
+          padding: 10px 0px;
+        }
+      }
+      .refund_list_result_box{
+        width: 100%;
+        background: #fff;
+        li{
+          display: grid;
+          box-shadow: 2px 2px 2px #999;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+          text-align: center;
+          padding: 10px 0px;
+          span{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+    /* .order_refund_bottom{
       width: 100%;
       height: auto;
       box-shadow: 2px 2px 2px #999;
       margin-top:150px;
       li {
         display: grid;
-        grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         width: 100%;
-        height: auto;
-        line-height: 30px;
+        height: 30px;
         text-align: center;
           span{
             border:1px solid #bbb;
@@ -88,6 +124,6 @@ export const OrderRefundWrapper = styled.div`
       li:first-child span {
         background-color: lightgray;
       }
-    }
+    } */
   }
 `

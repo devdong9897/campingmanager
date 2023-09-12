@@ -19,6 +19,7 @@ const getOrderList = async sandData => {
   return [];
 };
 
+// 배송상태 변경
 const postOrderState = async changeData => {
   try {
     const res = await axios.patch("/api/admin/order", changeData);
@@ -31,18 +32,22 @@ const postOrderState = async changeData => {
   return [];
 };
 
-// export const getOrderRefund = async () => {
-//   try {
-//     const params = {
-//       startDate: "20230906",
-//       endDate: "20230907",
-//     };
-//     const res = await axios.get(`/api/admin/refund`, { params: params });
-//     console.log("환불관리 요청 데이터");
-//     return res.data;
-//   } catch (err) {
-//     console.log(err);
-//   }
-//   return [];
-// };
-export { getOrderList, postOrderState };
+// 환불내역 보기
+const getOrderRefund = async (sendData) => {
+  try{
+    const res = await axios.get(`/api/admin/refund${
+      sendData.startDate ? `?startDate=${sendData.startDate}` : ""
+    }${sendData.endDate ? `&endDate=${sendData.endDate}` : ""}${
+      sendData.listBox ? `&listBox=${sendData.listBox}` : ""
+    }${sendData.keyword ? `&keyword=${sendData.keyword}` : ""}`)
+    const result = res.data;
+    console.log("환불내역 불러옴?",result);
+    return result;
+  }catch(err){
+    console.log(err);
+  }
+  return [];
+};
+
+
+export { getOrderRefund, getOrderList, postOrderState };
