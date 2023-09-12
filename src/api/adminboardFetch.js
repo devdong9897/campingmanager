@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 const getTodayDate = async () => {
@@ -58,6 +57,7 @@ const getBoardListData = async () => {
   } catch (err) {
     console.log(err);
   }
+  return [];
 };
 
 // const postBasket = async iitem => {
@@ -78,4 +78,3 @@ export {
   getMonthData,
   getBoardListData,
 };
-

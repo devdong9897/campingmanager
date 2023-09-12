@@ -76,7 +76,7 @@ const BoardManage = () => {
                 <p>게시글 표시여부</p>
                 <button>표시</button>
                 <button>표시안함</button>
-                <p className="bulletin_chack">게시글 표시여부</p>
+                <p className="bulletin_chack">읽기 권한</p>
                 <button>표시</button>
                 <button>표시안함</button>
                 <button>표시안함</button>

@@ -37,6 +37,7 @@ export const Board = styled.div`
         height: 30px;
         border-radius: 15px;
         border: 1px solid black;
+        padding-left: 10px;
       }
       .add_btn {
         position: absolute;
@@ -258,27 +259,54 @@ export const BoardPosts = styled.div`
     }
     .postslist_data {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       width: 100%;
       height: 80px;
-      box-shadow: 0px 0px 0px 2px red inset;
-      li {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        box-shadow: 0cm 0px 0px 2px blue inset;
-        span {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          height: 70%;
-          text-align: center;
-          background: #fafafd;
-          box-shadow: 0cm 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-        }
-        .list_bg {
+      .list_title {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        li {
           background: #fff;
+          text-align: center;
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+        }
+      }
+      .list_pack {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        li {
+          text-align: center;
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+        }
+      }
+    }
+    .nomallist_data {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 80px;
+      .nomallist_title {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+      }
+      .nomallist_title {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        li { 
+          background: #fff;
+          text-align: center;
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+        }
+      }
+      .list_pack {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+
+        li {
+          text-align: center;
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
         }
       }
     }

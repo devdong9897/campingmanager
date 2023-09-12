@@ -93,7 +93,7 @@ const MainCotent = () => {
     setAgeDataResult(ageLengthData);
     console.log(ageLengthData[0].length);
   };
-  useEffect(() => {
+  useEffect(() => { 
     userChartDate();
     userMainTodayData();
     userMainShopping();
@@ -177,7 +177,7 @@ const MainCotent = () => {
           <li className="miancontent_data">
             <div className="list_column" style={{ color: "blue" }}>
               <span>
-                <p>최근 7일 평균</p>
+                <p style={{textAlign: "center"}}>최근 7일 평균</p>
               </span>
             </div>
             <div className="list_column" style={{ color: "blue" }}>
@@ -199,10 +199,10 @@ const MainCotent = () => {
               </span>
             </div>
           </li>
-          <li className="miancontent_data">
+          <li className="miancontent_data" style={{color: "blueviolet"}}>
             <div className="list_column">
-              <span className="maincontent_data">
-                <p>최근 7일 합계</p>
+              <span className="maincontent_data" >
+                <p style={{textAlign: "center"}}>최근 7일 합계</p>
               </span>
             </div>
             <div className="list_column">

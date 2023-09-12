@@ -7,19 +7,30 @@ import {
   getThreeData,
   getTodayDate,
 } from "../api/adminboardFetch";
+import { text } from "@fortawesome/fontawesome-svg-core";
 
 const PostsBoard = () => {
-  // 게시물관리 날짜
-  const [boardData, setBoardData] = useState([]);
   // 게시물 리스트
+  const [noticeState, setNoticeState] = useState(true);
+  const [nomalBoardData, setNomalBoardData] = useState([]);
   const [boardListData, setBoardListData] = useState([]);
 
   // 게시물 오늘 날짜
+
+  // const parsedDataFunc = data => {
+  //   const koreanData = data.map(item => {
+  //     if (item.icategory === 0) {
+  //       return { ...item, icategory: "공지사항" };
+  //     } else if (item.i)
+  //   });
+  // };
+
   const boardTodayData = async () => {
     try {
       const data = await getTodayDate();
       console.log("게시물 오늘날짜 데이터 들어오냐고?", data);
-      setBoardData(data);
+      setNomalBoardData(data);
+      setNoticeState(false);
     } catch (err) {
       console.log(err);
     }
@@ -30,7 +41,8 @@ const PostsBoard = () => {
     try {
       const data = await getThreeData();
       console.log("3일 머시기", data);
-      setBoardData(data);
+      setNomalBoardData(data);
+      setNoticeState(false);
     } catch (err) {
       console.log(err);
     }
@@ -41,7 +53,8 @@ const PostsBoard = () => {
     try {
       const data = await getSevenDayData();
       console.log("7일 머시기", data);
-      setBoardData(data);
+      setNomalBoardData(data);
+      setNoticeState(false);
     } catch (err) {
       console.log(err);
     }
@@ -52,7 +65,7 @@ const PostsBoard = () => {
     try {
       const data = await getMonthData();
       console.log("한달 데이터 들어오냐?", data);
-      setBoardData(data);
+      setNomalBoardData(data);
     } catch (err) {
       console.log(err);
     }
@@ -69,8 +82,18 @@ const PostsBoard = () => {
     }
   };
 
+  const handleSearchBoard = async () => {
+    try {
+      const searchData = await getTodayDate();
+      console.log("검색 결과 데이터:", searchData);
+      setNomalBoardData(searchData);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
-    boardTodayData();
+    // boardTodayData();
     userNoticeList();
   }, []);
 
@@ -115,31 +138,68 @@ const PostsBoard = () => {
           </li>
         </ul>
         <div className="posts_buttom">
-          <button>검색</button>
+          <button onClick={handleSearchBoard}>검색</button>
         </div>
         <h2 className="posts_list">게시물 리스트</h2>
-        <ul className="postslist_data">
-          <li>
-            <span>카테고리</span>
-            <span className="list_bg">공지</span>
-          </li>
-          <li>
-            <span>제목</span>
-            <span className="list_bg">공지사항이다</span>
-          </li>
-          <li>
-            <span>작성자</span>
-            <span className="list_bg">작성자다</span>
-          </li>
-          <li>
-            <span>작성일</span>
-            <span className="list_bg">작성일이다</span>
-          </li>
-          <li>
-            <span>조회</span>
-            <span className="list_bg">조회다</span>
-          </li>
-        </ul>
+        {noticeState ? (
+          <>
+            <ul className="postslist_data">
+              <ul className="list_title">
+                <li>카테고리</li>
+                <li>내용</li>
+                <li>생성일자</li>
+                <li>조회수</li>
+              </ul>
+              {boardListData ? (
+                <>
+                  {boardListData.map((item, index) => (
+                    <div className="list_pack" key={index}>
+                      <li>{item.icategory}</li>
+                      <li>
+                        <p dangerouslySetInnerHTML={{ __html: item.ctnt }}></p>
+                      </li>
+                      <li>{item.createdat}</li>
+                      <li>{item.boardView}</li>
+                    </div>
+                  ))}
+                </>
+              ) : (
+                "데이터없음"
+              )}
+            </ul>
+          </>
+        ) : (
+          <>
+            <ul className="nomallist_data">
+              <ul className="nomallist_title">
+                <li>게시글PK</li>
+                <li>카테고리</li>
+                <li>제목</li>
+                <li>작성자</li>
+                <li>작성일</li>
+                <li>조회</li>
+              </ul>
+              {nomalBoardData ? (
+              <>
+                {nomalBoardData.map((item, index) => (
+                  <div className="list_pack" key={index}>
+                    <li>{item.icategory}</li>
+                    <li>
+                      카테고리(작성)
+                    </li>
+                    <li>{item.title}</li>
+                    <li>{item.name}</li> 
+                    <li>{item.createdat}</li> 
+                    <li>{item.boardview}</li> 
+                  </div>
+                ))}
+              </>
+            ) : (
+              ""
+            )}
+            </ul>
+          </>
+        )}
       </div>
     </BoardPosts>
   );
