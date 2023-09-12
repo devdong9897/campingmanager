@@ -39,6 +39,7 @@ const Main = () => {
           <Route path="/boardmanage" element={<BoardManage />}></Route>
           <Route path="/postsboard" element={<PostsBoard />}></Route>
           <Route path="/reservation" element={<Reservation />}></Route>
+    
         </Routes>
       </div>
     </MainWrap>

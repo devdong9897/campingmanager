@@ -16,6 +16,8 @@ const PostsBoard = () => {
   // 공지리스트 데이터
   const [boardListData, setBoardListData] = useState([]);
 
+  // 게시판 옵션 선택
+  const [selectedOption, setSelectedOption] = useState("분류");
   // 게시물 오늘 날짜
 
   // const parsedDataFunc = data => {
@@ -101,6 +103,15 @@ const PostsBoard = () => {
     }
   };
 
+  const filterOption = item => {
+    return selectedOption === "분류" || selectedOption === item.icategory;
+  };
+
+  const filterOptionChange = e => {
+    const selectedValue = e.target.Value;
+    setSelectedOption(selectedValue);
+  };
+
   useEffect(() => {
     // boardTodayData();
     userNoticeList();
@@ -109,6 +120,7 @@ const PostsBoard = () => {
 
   return (
     <BoardPosts>
+      ``
       <div className="posts_inner">
         <h2>게시물 검색</h2>
         <ul className="boardposts_data">
@@ -126,13 +138,13 @@ const PostsBoard = () => {
           <li>
             <span>게시판선택</span>
             <div className="data_columns">
-              <select>
-                <option>분류</option>
-                <option>공지</option>
-                <option>자유</option>
-                <option>중고거래</option>
-                <option>질문</option>
-                <option>지역</option>
+              <select onChange={filterOptionChange} value={selectedOption}>
+                <option value="분류">분류</option>
+                <option value="공지">공지</option>
+                <option value="자유">자유</option>
+                <option value="중고거래">중고거래</option>
+                <option value="질문">질문</option>
+                <option value="지역">지역</option>
               </select>
             </div>
           </li>
@@ -191,10 +203,10 @@ const PostsBoard = () => {
               </ul>
               {nomalBoardData ? (
                 <>
-                  {nomalBoardData.map((item, index) => (
+                  {nomalBoardData.filter(filterOption).map((item, index) => (
                     <div className="list_pack" key={index}>
                       <li>{item.icategory}</li>
-                      <li>카테고리(작성)</li>
+                      <li>{item.categoryName}</li>
                       <li>{item.title}</li>
                       <li>{item.name}</li>
                       <li>{item.createdat}</li>
