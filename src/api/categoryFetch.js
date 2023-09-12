@@ -69,6 +69,7 @@ const deleteCategoryItem = async iitemCategory => {
 };
 
 // 카테고리 디테일
+
 const getCategoryDetail = async () => {
   try {
     const res = await axios.get(`/api/admin/item/category`);
@@ -81,6 +82,7 @@ const getCategoryDetail = async () => {
   return {};
 };
 
+
 export {
   getCategoryList,
   getCategoryDetail,
@@ -89,3 +91,13 @@ export {
   deleteCategoryItem,
   categoryItemUpdate,
 };
+// 카테고리 삭제
+// const deleteCategoryItem = async iitem => {
+//     try {
+//         const res = await axios.delete(`/api/admin/item/category/${iitem}`)
+//         console.log("아이템 카테고리 삭제 요청")
+//     }catch(err) {
+//         console.log(err)
+//     }
+// }
+

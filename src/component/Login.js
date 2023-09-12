@@ -12,15 +12,16 @@ const Login = () => {
   // };
 
   const handleLogin = async e => {
+    e.preventDefault();
     console.log(id);
     console.log(pass);
     if (id === "" || pass === "") {
       alert("아이디와 비밀번호를 입력해주세요!!");
+      return;
     } else if (e.key === "enter") {
       alert("adawd");
     }
     try {
-      e.preventDefault();
       const login = await fetchLogin(id, pass);
       setId("");
       setPass("");
@@ -50,7 +51,7 @@ const Login = () => {
           />
           <div className="help_account">
             <span>
-              괸리자 계정 생성으로 관리자 계정을 생성하실 수 있습니다.
+              관리자 계정 생성으로 관리자 계정을 생성하실 수 있습니다.
             </span>
             <span>관리자 계정 생성</span>
             <div className="find_account">

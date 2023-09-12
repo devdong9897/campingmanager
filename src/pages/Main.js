@@ -25,20 +25,21 @@ const Main = () => {
         <Routes>
           <Route path="/" element={<MainContent />}></Route>
           <Route path="/ordermanage" element={<OrderManage />}>
-            <Route path="orderinquiry"element={<OrderInquiry/>}/>
-            <Route path="orderrefund"element={<OrderRefund/>}/>
+            <Route path="orderinquiry" element={<OrderInquiry />} />
+            <Route path="orderrefund" element={<OrderRefund />} />
           </Route>
           <Route path="/usermanage" element={<UserManage />}></Route>
           <Route path="/productmanage" element={<ProductManage />}>
-            <Route path="categoryadmin" element={<CategoryAdmin/>}/>
-            <Route path="orderregistration" element={<OrderRegistration/>}/>
-            <Route path="itemmanage" element={<ItemManage/>}/>
-            <Route path="itemstockmanage" element={<ItemStockManage/>}/>
-            <Route path="itemlist" element={<ItemList/>}/>
+            <Route path="categoryadmin" element={<CategoryAdmin />} />
+            <Route path="orderregistration" element={<OrderRegistration />} />
+            <Route path="itemmanage" element={<ItemManage />} />
+            <Route path="itemstockmanage" element={<ItemStockManage />} />
+            <Route path="itemlist" element={<ItemList />} />
           </Route>
           <Route path="/boardmanage" element={<BoardManage />}></Route>
           <Route path="/postsboard" element={<PostsBoard />}></Route>
           <Route path="/reservation" element={<Reservation />}></Route>
+    
         </Routes>
       </div>
     </MainWrap>

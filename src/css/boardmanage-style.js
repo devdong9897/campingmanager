@@ -11,6 +11,66 @@ export const Board = styled.div`
     h2 {
       margin-bottom: 10px;
     }
+    .category_explanation {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 200px;
+      margin-bottom: 20px;
+      background: #fafafd;
+      border: 1px solid #e5e5e5;
+      .category_text {
+        margin-top: 50px;
+        margin-left: 40px;
+      }
+      .test_title {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+      }
+      input {
+        position: absolute;
+        top: 80px;
+        right: 50px;
+        width: 200px;
+        height: 30px;
+        border-radius: 15px;
+        border: 1px solid black;
+        padding-left: 10px;
+      }
+      .add_btn {
+        position: absolute;
+        right: 60px;
+        top: 150px;
+        button {
+          margin-left: 15px;
+          padding: 0 20px 0 20px;
+          border-radius: 5px;
+          border: 1px solid black;
+        }
+      }
+    }
+    .bottom_btn {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 35px;
+
+      button {
+        margin-top: 10px;
+      }
+      .delete_btn {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid black;
+      }
+      .add_btn {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid black;
+      }
+    }
     .notice_box {
       display: flex;
       flex-direction: row;
@@ -117,28 +177,6 @@ export const Board = styled.div`
         }
       }
     }
-
-    .bottom_btn {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      height: 40px;
-      background: #fff;
-      box-shadow: 0cm 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-      button {
-        margin-top: 10px;
-      }
-      .delete_btn {
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid black;
-      }
-      .add_btn {
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid black;
-      }
-    }
   }
 `;
 
@@ -221,27 +259,54 @@ export const BoardPosts = styled.div`
     }
     .postslist_data {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       width: 100%;
       height: 80px;
-      box-shadow: 0px 0px 0px 2px red inset;
-      li {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        box-shadow: 0cm 0px 0px 2px blue inset;
-        span {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          height: 70%;
-          text-align: center;
-          background: #fafafd;
-          box-shadow: 0cm 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-        }
-        .list_bg {
+      .list_title {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        li {
           background: #fff;
+          text-align: center;
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+        }
+      }
+      .list_pack {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        li {
+          text-align: center;
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+        }
+      }
+    }
+    .nomallist_data {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 80px;
+      .nomallist_title {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+      }
+      .nomallist_title {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        li { 
+          background: #fff;
+          text-align: center;
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+        }
+      }
+      .list_pack {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+
+        li {
+          text-align: center;
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
         }
       }
     }

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Board } from "../css/boardmanage-style";
+import { getTodayDate } from "../api/adminboardFetch";
 
 const BoardManage = () => {
   // 공지사항이다를 클릭할때 수정할수있는 박스 생성
@@ -7,6 +8,11 @@ const BoardManage = () => {
   const [isViewClicked, setIsViewClicked] = useState(false);
   const [isDeleteClicked, setIsDeleteClicked] = useState(false);
   const [isAnnouncementClicked, setIsAnnouncementClicked] = useState(false);
+
+  // 게시판 목록 게시판 추가
+  const [categoryAdd, setCategoryAdd] = useState(false);
+
+ 
 
   // 공지사항 클릭 핸들러
   const handleNoticeClick = () => {
@@ -21,6 +27,7 @@ const BoardManage = () => {
     setIsNoticeClicked(false);
     setIsDeleteClicked(false);
     setIsAnnouncementClicked(false);
+    setCategoryAdd(false);
   };
 
   // 글삭제 클릭 핸들러
@@ -29,6 +36,7 @@ const BoardManage = () => {
     setIsViewClicked(false);
     setIsNoticeClicked(false);
     setIsAnnouncementClicked(false);
+    setCategoryAdd(false);
   };
 
   // 공지글 클릭 핸들러
@@ -37,12 +45,24 @@ const BoardManage = () => {
     setIsViewClicked(false);
     setIsDeleteClicked(false);
     setIsNoticeClicked(false);
+    setCategoryAdd(false);
   };
 
+  // 카테고리 추가 클릭 핸들러
+  const handleCategoryClick = () => {
+    setCategoryAdd(!categoryAdd);
+    setIsViewClicked(false);
+    setIsDeleteClicked(false);
+    setIsNoticeClicked(false);
+    setIsAnnouncementClicked(false);
+  };
+
+ 
   return (
     <Board>
       <div className="board_inner">
         <h2>게시판 목록</h2>
+
         {isNoticeClicked && (
           <div className="notice_box">
             <div className="first_box">
@@ -56,12 +76,12 @@ const BoardManage = () => {
                 <p>게시글 표시여부</p>
                 <button>표시</button>
                 <button>표시안함</button>
-                <p className="bulletin_chack">게시글 표시여부</p>
+                <p className="bulletin_chack">읽기 권한</p>
                 <button>표시</button>
                 <button>표시안함</button>
                 <button>표시안함</button>
               </div>
-                <button className="save">저장</button>
+              <button className="save">저장</button>
             </div>
           </div>
         )}
@@ -84,6 +104,26 @@ const BoardManage = () => {
           </div>
         )}
 
+        {categoryAdd && (
+          <div className="category_explanation">
+            <p className="category_text">
+              *게시판 카테고리를 추가하게 되면 입력한 값으로 카테고리가 추가
+              됩니다.
+            </p>
+            <p className="test_title">추가될 카테고리 제목입력</p>
+            <input type="text" className="category_input" />
+            <div className="add_btn">
+              <button>추가</button>
+              <button>취소</button>
+            </div>
+          </div>
+        )}
+        <div className="bottom_btn">
+          <button className="delete_btn">삭제</button>
+          <button className="add_btn" onClick={handleCategoryClick}>
+            게시판 추가
+          </button>
+        </div>
         <ul className="mainboard_data">
           <li className="first_chart">
             <span>
@@ -123,10 +163,6 @@ const BoardManage = () => {
             <span>표시</span>
           </li>
         </ul>
-        <div className="bottom_btn">
-          <button className="delete_btn">삭제</button>
-          <button className="add_btn">게시판 추가</button>
-        </div>
       </div>
     </Board>
   );
