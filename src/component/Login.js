@@ -28,7 +28,7 @@ const Login = () => {
     } catch (err) {
       console.log(err);
     } finally {
-      navigate("/main");
+      navigate("/admin");
     }
   };
   return (

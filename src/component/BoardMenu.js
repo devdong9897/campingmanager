@@ -6,7 +6,7 @@ const BoardMenu = () => {
   return (
     <SubDrop>
       <div className="menu-dropdown">
-        <Link to="/main/boardmanage">게시판 관리</Link>
+        <Link to="/admin/boardmanage">게시판 관리</Link>
       </div>
     </SubDrop>
   );

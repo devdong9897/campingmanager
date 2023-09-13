@@ -102,6 +102,16 @@ const getCategoryBoardDate = async selectedOption => {
   return [];
 };
 
+const postCategoryAddData = async () => {
+  try {
+    const res = await axios.patch("/api/admin/board/category");
+    const result = res.data;
+    console.log("카테고리 생성 POST");
+    return result;
+  } catch (err) {
+    console.log(err);
+  }
+};
 // const postBasket = async iitem => {
 //   try {
 //     const res = await axios.post(`/api/cart`, {
@@ -122,4 +132,5 @@ export {
   getTotalListData,
   getCategoryData,
   getCategoryBoardDate,
+  postCategoryAddData
 };

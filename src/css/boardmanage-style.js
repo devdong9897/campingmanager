@@ -155,13 +155,6 @@ export const Board = styled.div`
             background: #fff;
           }
         }
-        .notice {
-          text-decoration: underline;
-          cursor: pointer;
-          &:hover {
-            color: #828282;
-          }
-        }
       }
       .board_btn {
         display: flex;

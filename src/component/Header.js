@@ -35,19 +35,19 @@ const Header = () => {
       <div className="header_logo"></div>
       <ul className="home_categories">
         <li>
-          <Link to="/main">홈</Link>
+          <Link to="/admin">홈</Link>
         </li>
         <li>
-          <Link to="/main/usermanage">유저관리</Link>
+          <Link to="/admin/usermanage">유저관리</Link>
         </li>
         <li onClick={() => toggleMenu(0)}>
           주문관리
           <ul className={`lnb ${lnbIndex === 0 ? "active" : ""}`}>
             <li>
-              <Link to="/main/ordermanage/orderinquiry">전체 주문조회</Link>
+              <Link to="/admin/ordermanage/orderinquiry">전체 주문조회</Link>
             </li>
             <li>
-              <Link to="/main/ordermanage/orderrefund">환불관리</Link>
+              <Link to="/admin/ordermanage/orderrefund">환불관리</Link>
             </li>
           </ul>
         </li>
@@ -55,7 +55,7 @@ const Header = () => {
           상품관리
           <ul className={`lnb ${lnbIndex === 1 ? "active" : ""}`}>
             <li>
-              <Link to="/main/productmanage/categoryadmin">카테고리 관리</Link>
+              <Link to="/admin/productmanage/categoryadmin">카테고리 관리</Link>
             </li>
             {/* <li>
               <Link to="/main/productmanage/orderregistration">
@@ -63,7 +63,7 @@ const Header = () => {
               </Link>
             </li> */}
             <li>
-              <Link to="/main/productmanage/itemmanage">상품 관리</Link>
+              <Link to="/admin/productmanage/itemmanage">상품 관리</Link>
             </li>
             {/* <li>
               <Link to="/main/productmanage/itemstockmanage">
@@ -74,7 +74,7 @@ const Header = () => {
               <Link to="/main/productmanage/itemlist">상품 목록</Link>
             </li> */}
             <li>
-              <Link to="/main/productmanage/itemlist">추천아이템 관리</Link>
+              <Link to="/admin/productmanage/itemlist">추천아이템 관리</Link>
             </li>
           </ul>
         </li>
@@ -82,10 +82,10 @@ const Header = () => {
           게시판
           <ul className={`lnb ${lnbIndex === 2 ? "active" : ""}`}>
             <li>
-              <Link to="/main/boardmanage">게시판 관리</Link>
+              <Link to="/admin/boardmanage">게시판 관리</Link>
             </li>
             <li>
-              <Link to="/main/postsboard">게시물 관리</Link>
+              <Link to="/admin/postsboard">게시물 관리</Link>
             </li>
           </ul>
         </li>

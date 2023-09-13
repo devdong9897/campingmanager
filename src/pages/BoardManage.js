@@ -23,7 +23,6 @@ const BoardManage = () => {
   // 글보기 클릭 핸들러
   const handleViewClick = () => {
     setIsViewClicked(!isViewClicked);
-    setIsNoticeClicked(false);
     setIsDeleteClicked(false);
     setIsAnnouncementClicked(false);
     setCategoryAdd(false);
@@ -33,7 +32,6 @@ const BoardManage = () => {
   const hanldeDeleteClick = () => {
     setIsDeleteClicked(!isDeleteClicked);
     setIsViewClicked(false);
-    setIsNoticeClicked(false);
     setIsAnnouncementClicked(false);
     setCategoryAdd(false);
   };
@@ -43,7 +41,6 @@ const BoardManage = () => {
     setIsAnnouncementClicked(!isAnnouncementClicked);
     setIsViewClicked(false);
     setIsDeleteClicked(false);
-    setIsNoticeClicked(false);
     setCategoryAdd(false);
   };
 
@@ -52,7 +49,6 @@ const BoardManage = () => {
     setCategoryAdd(!categoryAdd);
     setIsViewClicked(false);
     setIsDeleteClicked(false);
-    setIsNoticeClicked(false);
     setIsAnnouncementClicked(false);
   };
 
@@ -60,29 +56,6 @@ const BoardManage = () => {
     <Board>
       <div className="board_inner">
         <h2>게시판 목록</h2>
-
-        {isNoticeClicked && (
-          <div className="notice_box">
-            <div className="first_box">
-              <p>게시판 제목</p>
-              <input type="text" />
-              <p className="announcement">게시판 안내글</p>
-              <input type="text" className="announcement_input" />
-            </div>
-            <div className="second_box">
-              <div className="chack_btn">
-                <p>게시글 표시여부</p>
-                <button>표시</button>
-                <button>표시안함</button>
-                <p className="bulletin_chack">읽기 권한</p>
-                <button>표시</button>
-                <button>표시안함</button>
-                <button>표시안함</button>
-              </div>
-              <button className="save">저장</button>
-            </div>
-          </div>
-        )}
 
         {isViewClicked && (
           <div className="notice_box">
@@ -117,7 +90,6 @@ const BoardManage = () => {
           </div>
         )}
         <div className="bottom_btn">
-          <button className="delete_btn">삭제</button>
           <button className="add_btn" onClick={handleCategoryClick}>
             게시판 추가
           </button>
