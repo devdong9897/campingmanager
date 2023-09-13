@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import { ItemManageWrapper } from '../css/itemmanage-style'
-import { getItemSearch } from '../api/itemFetch'
+import { getItemSearch, getItemSearchList } from '../api/itemFetch'
 
 const ItemManage = () => {
     // const [itemSearchList, setItemSearchList] = useState()
     const [searchList, setSearchList] = useState([])
+    const [searchItem, setSearchItem] = useState([])
     const [searchKeyword, setSearchKeyword] = useState("")
 
     // 아이템 검색
-
+    const itemSearch = async () => {
+        try {
+            const data = await getItemSearch()
+            console.log("아이템 검색",data)
+            setSearchItem(data)
+        }catch(err) {
+            console.log(err)
+        }
+    }
     // 아이템 검색리스트
     const itemSearchList = async () => {
         try {
-            const data = await getItemSearch()
+            const data = await getItemSearchList()
             console.log("아이템 검색 리스트", data)
             setSearchList(data.itemList)
         }catch(err){
@@ -32,6 +41,7 @@ const ItemManage = () => {
     // }
 
     useEffect(() => {
+        itemSearch()
         itemSearchList()
     },[])
 
@@ -54,7 +64,9 @@ const ItemManage = () => {
                             </span>
                             <span>상품 등록일</span>
                             <span>
-                            <input type="text"/>
+                            <input type="date"/>
+                            
+                            <input type="date"/>
                             </span>
                         </li>
                         <li>

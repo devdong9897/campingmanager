@@ -89,13 +89,22 @@ const recommendItemAdd = async (iitem, monthLike) => {
   }
 };
 // 아이템 개별 검색
-
-// 아이템 검색 리스트
 const getItemSearch = async () => {
+  try {
+    const res = await axios.get("/api/admin/item/search")
+    const result = res.data;
+    console.log("아이템 검색 요청 완료",result)
+    return result
+  }catch(err) {
+    console.log(err)
+  }
+}
+// 아이템 검색 리스트
+const getItemSearchList = async () => {
   try {
     const res = await axios.get("/api/admin/item/search");
     const result = res.data;
-    console.log("아이템 검색 요청 완료", result);
+    console.log("아이템 검색리스트 요청 완료", result);
     return result;
   } catch (err) {
     console.log(err);
@@ -108,7 +117,8 @@ export {
   itemAdd,
   itemEdit,
   itemDelete,
-  getItemSearch,
+  getItemSearchList,
   getRecommendItemList,
   recommendItemAdd,
+  getItemSearch
 };
