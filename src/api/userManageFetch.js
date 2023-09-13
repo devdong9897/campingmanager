@@ -1,33 +1,33 @@
-import axios from "axios"
+import axios from "axios";
 
 // 모든 유저 리스트 보기
 const getUserList = async () => {
-    try {
-        const res = await axios.get("/api/admin/manage/users")
-        const result = res.data;
-        console.log("모든 유저 리스트 보기 요청 완료")
-        console.log(result)
-        return result;
-    }catch (err){
-        console.log(err)
-    }
-    return []
-}
+  try {
+    const res = await axios.get("/api/admin/manage/users");
+    const result = res.data;
+    console.log("모든 유저 리스트 보기 요청 완료");
+    console.log(result);
+    return result;
+  } catch (err) {
+    console.log(err);
+  }
+  return [];
+};
 
 // 유저 한명 검색하기
-export const getOneUserList = async () => {
+export const getOneUserList = async _query => {
   try {
-    const res = await axios.get(`/api/admin/manage/users`)
+    const res = await axios.get(`/api/admin/manage/users/user${_query}`);
     const result = res.data;
-    console.log("유저 한명!!! 한명만 들어와!!!")
-    return result
-  }catch(err) {
-    console.log(err)
+    // console.log("유저 한명!!! 한명만 들어와!!!");
+    return result;
+  } catch (err) {
+    console.log(err);
   }
-  return []
-}
+  return [];
+};
 
-export default getUserList
+export default getUserList;
 
 /*
 {

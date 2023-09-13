@@ -17,25 +17,25 @@ const ItemDetailImage = async (iitem, picUrl) => {
 
 // 아이템 추가
 const itemAdd = async requestData => {
-    try{
-        // const requestData = {
-        //     iitemCategory: 0, 
-        //     name: "string",   
-        //     pic: "string",    
-        //     price: 0,         
-        //     info: "string",   
-        //     stock: 0,         
-        //     status: 0,        
-        //     picUrl: ["string"]
-        // };
-        const res = await axios.post(`/api/admin/item`,requestData)
-        const data = res.data
-        console.log("아이템 추가 요청 완료")
-        return data;
-    }catch(err){
-        console.log(err)
-    }
-}
+  try {
+    // const requestData = {
+    //     iitemCategory: 0,
+    //     name: "string",
+    //     pic: "string",
+    //     price: 0,
+    //     info: "string",
+    //     stock: 0,
+    //     status: 0,
+    //     picUrl: ["string"]
+    // };
+    const res = await axios.post(`/api/admin/item`, requestData);
+    const data = res.data;
+    console.log("아이템 추가 요청 완료");
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 // 아이템 수정
 const itemEdit = async itemData => {
@@ -91,18 +91,20 @@ const recommendItemAdd = async (iitem, monthLike) => {
 // 아이템 개별 검색
 const getItemSearch = async () => {
   try {
-    const res = await axios.get("/api/admin/item/search")
-    const result = res.data;
-    console.log("아이템 검색 요청 완료",result)
-    return result
-  }catch(err) {
-    console.log(err)
-  }
-}
-// 아이템 검색 리스트
-const getItemSearchList = async () => {
-  try {
     const res = await axios.get("/api/admin/item/search");
+    const result = res.data;
+    console.log("아이템 검색 요청 완료", result);
+    return result;
+  } catch (err) {
+    console.log(err);
+  }
+};
+// 아이템 검색 리스트
+const getItemSearchList = async _query => {
+  console.log(_query);
+  try {
+    const res = await axios.get(`/api/admin/item/search${_query}`);
+
     const result = res.data;
     console.log("아이템 검색리스트 요청 완료", result);
     return result;
@@ -120,5 +122,5 @@ export {
   getItemSearchList,
   getRecommendItemList,
   recommendItemAdd,
-  getItemSearch
+  getItemSearch,
 };
