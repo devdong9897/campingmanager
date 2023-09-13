@@ -9,6 +9,8 @@ import {
   recommendItemAdd,
 } from "../api/itemFetch";
 import ItemEditList from "./ItemEditList";
+import { ItemManageEditWrapper } from "../css/itemListEdit-style";
+import { ItemManageModalWrapper } from "../css/itemmanage-modal-style";
 
 const ItemList = () => {
   const [recommendList, setRecommentList] = useState([]);
@@ -172,74 +174,59 @@ const ItemList = () => {
       {/* 상품 전체 목록 출력하여서 iitem 을 선택할 수있도록 페이지 처리 */}
       {/* 추후 컴포넌트 빼주기 */}
       {itemWinVis ? (
-        <div
-        className="whatisthis"
-        style={{
-          position: "fixed",
-          left: "50%",
-          top: "50%",
-          width: "50%",
-          height: "50%",
-          transform: "translate(-50%, -50%)",
-          background: "rgba(0,0,0,0.5)",
-          zIndex: 999,
-        }}
-        >
-          <ItemManageWrapper>
-            <div className="itemmanage_wrapper">
-              {itemState === "add" ? (
-                <h1>추천아이템 추가 </h1>
-              ) : (
-                <h1>추천아이템 수정 </h1>
-              )}
-
-              <div className="recoitem_admin_add">
-                <div className="recoitem_admin_add_inner">
-                  <div className="recoitem_admin_add_left">
-                    {/* <h2>추천아이템</h2> */}
-                    <input
-                      type="text"
-                      value={newItem}
-                      // onChange={e => handleChangeNewItem(e.target.value)}
-                    />
-                    <input
-                      type="date"
-                      value={newItemDate}
-                      onChange={e => handleChangeNewItemDate(e.target.value)}
-                    />
-                    {itemState === "add" ? (
-                      <button onClick={itemBestAdd}>추가하기 </button>
-                    ) : (
-                      <button onClick={itemBestEdit}>수정하기 </button>
-                    )}
-                  </div>
+        // <ItemManageEditWrapper>
+          
+            <ItemManageModalWrapper>
+              <div className="recoitem_wrapper">
+                {itemState === "add" ? (
+                  <h1>추천아이템 추가 </h1>
+                ) : (
+                  <h1>추천아이템 수정 </h1>
+                )}
+                    <div className="recoitem_top">
+                      {/* <h2>추천아이템</h2> */}
+                      <input
+                        type="text"
+                        value={newItem}
+                        className="inputnum"
+                        // onChange={e => handleChangeNewItem(e.target.value)}
+                      />
+                      <input
+                        type="date"
+                        value={newItemDate}
+                        onChange={e => handleChangeNewItemDate(e.target.value)}
+                      />
+                      {itemState === "add" ? (
+                        <button className="addbox" onClick={itemBestAdd}>추가하기 </button>
+                      ) : (
+                        <button className="editbox" onClick={itemBestEdit}>수정하기 </button>
+                      )}
+                    </div>
+                <div className="recoitem_bottom">
+                  <ul>
+                    <li>
+                      <span>번호</span>
+                      <span>상품명</span>
+                      <span>카테고리</span>
+                      <span>가격</span>
+                      <span>상품 등록일</span>
+                      <span>진열상태</span>
+                    </li>
+                    {searchList.map((item, index) => (
+                      <li key={index} onClick={() => haldeChoiceIitem(item)}>
+                        <span>{item.iitem}</span>
+                        <span>{item.name}</span>
+                        <span>{item.categoryName}</span>
+                        <span>{item.price}</span>
+                        <span>{item.createdAt}</span>
+                        <span>{item.status === 1 ? "진열" : "진열안함"}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <div className="itemmanage_bottom">
-                <ul>
-                  <li>
-                    <span>번호</span>
-                    <span>상품명</span>
-                    <span>카테고리</span>
-                    <span>가격</span>
-                    <span>상품 등록일</span>
-                    <span>진열상태</span>
-                  </li>
-                  {searchList.map((item, index) => (
-                    <li key={index} onClick={() => haldeChoiceIitem(item)}>
-                      <span>{item.iitem}</span>
-                      <span>{item.name}</span>
-                      <span>{item.categoryName}</span>
-                      <span>{item.price}</span>
-                      <span>{item.createdAt}</span>
-                      <span>{item.status}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </ItemManageWrapper>
-        </div>
+            </ItemManageModalWrapper>
+          // {/* </ItemManageEditWrapper> */}
       ) : null}
     </ItemListWrapper>
   );

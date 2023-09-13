@@ -49,6 +49,9 @@ export const ItemManageWrapper = styled.div`
             }
             li:first-child{
                 border-bottom:none;
+                span:nth-of-type(4) input{
+                    width: 50%;
+                }
             }
             }
             div{
@@ -87,7 +90,6 @@ export const ItemManageWrapper = styled.div`
             overflow: hidden;
             li{
                 float:left;
-                
                 display: grid;
                 height: auto;
                 text-align: center;
@@ -104,6 +106,9 @@ export const ItemManageWrapper = styled.div`
                 span:last-child {
                     border-right:none;
                 }
+            }
+            li:hover{
+                cursor: pointer;
             }
             li:first-child{
                 border-bottom:none;
