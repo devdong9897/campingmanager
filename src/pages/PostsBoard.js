@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { BoardPosts } from "../css/boardmanage-style";
 import {
   getBoardListData,
+  getCategoryBoardDate,
+  getCategoryData,
   getMonthData,
   getSevenDayData,
   getThreeData,
@@ -17,16 +19,28 @@ const PostsBoard = () => {
   const [boardListData, setBoardListData] = useState([]);
 
   // 게시판 옵션 선택
-  const [selectedOption, setSelectedOption] = useState("분류");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [selectedOption, setSelectedOption] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+
+  // 카테고리 조회 선택
+  const [categorySearch, setCategorySearch] = useState([]);
+
+  const [isLoding, setIsLoading] = useState(true);
   // 게시물 오늘 날짜
 
-  // const parsedDataFunc = data => {
-  //   const koreanData = data.map(item => {
-  //     if (item.icategory === 0) {
-  //       return { ...item, icategory: "공지사항" };
-  //     } else if (item.i)
-  //   });
-  // };
+  // 조건검색 핸들러들!
+  const handleStartDate = e => {
+    console.log(e.target.value);
+  };
+
+  const handleEndDate = e => {
+    console.log(e);
+  };
+
+  const handleSearchValueData = () => {};
+
   const toTalListData = async () => {
     try {
       const data = await getTotalListData();
@@ -41,6 +55,17 @@ const PostsBoard = () => {
       const data = await getTodayDate();
       console.log("게시물 오늘날짜 데이터 들어오냐고?", data);
       setNomalBoardData(data);
+      setNoticeState(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const boardAllData = async () => {
+    try {
+      const data = await getTotalListData();
+      setNomalBoardData(data);
+      console.log("전체리스트?", data);
       setNoticeState(false);
     } catch (err) {
       console.log(err);
@@ -95,56 +120,90 @@ const PostsBoard = () => {
 
   const handleSearchBoard = async () => {
     try {
-      const searchData = await getTodayDate();
-      console.log("검색 결과 데이터:", searchData);
-      setNomalBoardData(searchData);
+      let searchData = [];
+      if (selectedOption === "분류") {
+        searchData = await getTotalListData();
+      } else {
+        searchData = await getCategoryData(selectedOption);
+      }
+
+      // 선택한 카테고리에 해당하는 데이터만 필터링
+      const filteredData = searchData.filter(
+        item => item.icategory === selectedOption,
+      );
+
+      console.log("검색 결과 데이타:", filteredData);
+      setNomalBoardData(filteredData); // 선택한 카테고리에 해당하는 데이터로 업데이트
     } catch (err) {
       console.log(err);
     }
   };
 
-  const filterOption = item => {
-    return selectedOption === "분류" || selectedOption === item.icategory;
+  // 카테고리 조회
+  const boardCategory = async () => {
+    // const sendData = {
+    //   startDate: startDate,
+    //   endDate: endDate,
+    //   listBox: searchNum,
+    //   keyword: searchValue,
+    // };
+    // console.log(sendData);
+    // try {
+    //   const data = await getCategoryData();
+    //   console.log("카테고리조회 데이터 들어오냐?", data);
+    //   setCategorySearch(data);
+    // } catch (err) {
+    //   console.log(err);
+    // }
   };
 
-  const filterOptionChange = e => {
-    const selectedValue = e.target.Value;
-    setSelectedOption(selectedValue);
+  const boardCategoryData = async e => {
+    console.log(e);
+    setSelectedOption(e);
+    try {
+      const data = await getCategoryBoardDate(selectedOption);
+      console.log("리스트만 들어오냐", data.list);
+      setNomalBoardData(data.list);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
-    // boardTodayData();
     userNoticeList();
-    toTalListData();
+    boardCategory();
   }, []);
 
   return (
     <BoardPosts>
-      ``
       <div className="posts_inner">
         <h2>게시물 검색</h2>
         <ul className="boardposts_data">
           <li>
             <span>작성일</span>
             <div className="data_columns">
+              <button onClick={boardAllData}>전체</button>
               <button onClick={boardTodayData}>오늘</button>
               <button onClick={handleThreeData}>3일</button>
               <button onClick={handleSevenData}>7일</button>
               <button onClick={handleMonthData}>1개월</button>
-              <input type="date"></input>
-              <input type="date"></input>
+              <input type="date" onChange={e => handleStartDate(e)}></input>
+              <input type="date" onChange={e => handleEndDate(e)}></input>
             </div>
           </li>
           <li>
             <span>게시판선택</span>
             <div className="data_columns">
-              <select onChange={filterOptionChange} value={selectedOption}>
-                <option value="분류">분류</option>
-                <option value="공지">공지</option>
-                <option value="자유">자유</option>
-                <option value="중고거래">중고거래</option>
-                <option value="질문">질문</option>
-                <option value="지역">지역</option>
+              <select
+                value={selectedOption}
+                onChange={e => boardCategoryData(e.target.value)}
+              >
+                <option>분류</option>
+                {categorySearch.map((category, index) => (
+                  <option key={index} value={category.icategory}>
+                    {category.name}
+                  </option>
+                ))}
               </select>
             </div>
           </li>
@@ -203,7 +262,7 @@ const PostsBoard = () => {
               </ul>
               {nomalBoardData ? (
                 <>
-                  {nomalBoardData.filter(filterOption).map((item, index) => (
+                  {nomalBoardData.map((item, index) => (
                     <div className="list_pack" key={index}>
                       <li>{item.icategory}</li>
                       <li>{item.categoryName}</li>

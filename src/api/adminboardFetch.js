@@ -1,4 +1,5 @@
 import axios from "axios";
+import { redirectDocument } from "react-router";
 
 const getTodayDate = async () => {
   try {
@@ -62,14 +63,42 @@ const getBoardListData = async () => {
 
 const getTotalListData = async () => {
   try {
-    const res = await axios.get("/api/community/list");
+    const res = await axios.get("/api/admin/board/board");
     const result = res.data;
     console.log("게시글 전체리스트 요청완료", result);
     return result;
   } catch (err) {
     console.log(err);
   }
-  return []
+  return [];
+};
+
+const getCategoryData = async () => {
+  try {
+    const res = await axios.get(`/api/admin/board/category`);
+    const result = res.data;
+    console.log("카테고리 조회 요청완료");
+    return result;
+  } catch (err) {
+    console.log(err);
+  }
+  return [];
+};
+
+const getCategoryBoardDate = async selectedOption => {
+  try {
+    const res = await axios.get(
+      `/api/community/category-list?icategory=${parseInt(
+        selectedOption,
+      )}&page=1&row=15`,
+    );
+    const result = res.data;
+    console.log("검색한거 다들어옴?", res);
+    return result;
+  } catch (err) {
+    console.log(err);
+  }
+  return [];
 };
 
 // const postBasket = async iitem => {
@@ -89,5 +118,7 @@ export {
   getSevenDayData,
   getMonthData,
   getBoardListData,
-  getTotalListData
+  getTotalListData,
+  getCategoryData,
+  getCategoryBoardDate,
 };

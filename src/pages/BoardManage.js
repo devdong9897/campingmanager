@@ -12,8 +12,6 @@ const BoardManage = () => {
   // 게시판 목록 게시판 추가
   const [categoryAdd, setCategoryAdd] = useState(false);
 
- 
-
   // 공지사항 클릭 핸들러
   const handleNoticeClick = () => {
     setIsNoticeClicked(!isNoticeClicked);
@@ -57,7 +55,6 @@ const BoardManage = () => {
     setIsAnnouncementClicked(false);
   };
 
- 
   return (
     <Board>
       <div className="board_inner">
@@ -67,7 +64,7 @@ const BoardManage = () => {
           <div className="notice_box">
             <div className="first_box">
               <p>게시판 제목</p>
-              <input type="text" />
+              <input type="text"/>
               <p className="announcement">게시판 안내글</p>
               <input type="text" className="announcement_input" />
             </div>
