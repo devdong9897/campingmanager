@@ -61,9 +61,10 @@ const getBoardListData = async () => {
   return [];
 };
 
-const getTotalListData = async () => {
+const getTotalListData = async _query => {
+  // http://192.168.0.144:5005/api/admin/board/admin-board?startDate=2023-09-14&endDate=2023-09-14&icategory=5&title=%EC%95%88%EB%85%95
   try {
-    const res = await axios.get("/api/admin/board/board");
+    const res = await axios.get(`/api/admin/board/admin-board${_query}`);
     const result = res.data;
     console.log("게시글 전체리스트 요청완료", result);
     return result;

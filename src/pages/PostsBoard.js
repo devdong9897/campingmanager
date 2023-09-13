@@ -18,28 +18,9 @@ const PostsBoard = () => {
   // 공지리스트 데이터
   const [boardListData, setBoardListData] = useState([]);
 
-  // 게시판 옵션 선택
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
-  const [searchValue, setSearchValue] = useState("");
-
-  // 카테고리 조회 선택
-  const [categorySearch, setCategorySearch] = useState([]);
-
-  const [isLoding, setIsLoading] = useState(true);
-  // 게시물 오늘 날짜
-
-  // 조건검색 핸들러들!
-  const handleStartDate = e => {
-    console.log(e.target.value);
-  };
-
-  const handleEndDate = e => {
+  const handleSearchValueData = e => {
     console.log(e);
   };
-
-  const handleSearchValueData = () => {};
 
   const toTalListData = async () => {
     try {
@@ -118,27 +99,64 @@ const PostsBoard = () => {
     }
   };
 
-  const handleSearchBoard = async () => {
+  // ===================== 상세검색
+  // 카테고리 조회 선택
+  const [categorySearch, setCategorySearch] = useState([]);
+  // 게시판 옵션 선택
+  const [selectedOption, setSelectedOption] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [selectTitle, setSelectTitle] = useState("");
+  const [titleTxt, setTitleTxt] = useState("");
+
+  // 상세 분류
+  const getCategory = async () => {
     try {
-      let searchData = [];
-      if (selectedOption === "분류") {
-        searchData = await getTotalListData();
-      } else {
-        searchData = await getCategoryData(selectedOption);
-      }
-
-      // 선택한 카테고리에 해당하는 데이터만 필터링
-      const filteredData = searchData.filter(
-        item => item.icategory === selectedOption,
-      );
-
-      console.log("검색 결과 데이타:", filteredData);
-      setNomalBoardData(filteredData); // 선택한 카테고리에 해당하는 데이터로 업데이트
+      const data = await getCategoryData();
+      console.log("상세분류 목록 ", data);
+      setCategorySearch(data);
     } catch (err) {
       console.log(err);
     }
   };
+  useEffect(() => {
+    getCategory();
+  }, []);
+  const boardCategoryData = async _cate => {
+    console.log(_cate);
+    setSelectedOption(_cate);
+    // console.log(e);
+    // setSelectedOption(e);
+    // console.log("여기니?");
+    // try {
+    //   const data = await getCategoryBoardDate(selectedOption);
+    //   console.log("리스트만 들어오냐", data.list);
+    //   setNomalBoardData(data.list);
+    // } catch (err) {
+    //   console.log(err);
+    // }
+  };
 
+  // 시작 날짜
+  const handleStartDate = e => {
+    // console.log(e.target.value);
+    setStartDate(e.target.value);
+  };
+  // 마지막 날짜
+  const handleEndDate = e => {
+    // console.log(e.target.value);
+    setEndDate(e.target.value);
+  };
+  // 타이틀
+  const handleChangeTitle = _title => {
+    // console.log("handleChangeTitle : ", _title);
+    setSelectTitle(_title);
+  };
+  // 타이틀 내용
+  const handleChangeTitleTxt = _title => {
+    // console.log("handleChangeTitleTxt : ", _title);
+    setTitleTxt(_title);
+  };
   // 카테고리 조회
   const boardCategory = async () => {
     // const sendData = {
@@ -157,21 +175,45 @@ const PostsBoard = () => {
     // }
   };
 
-  const boardCategoryData = async e => {
-    console.log(e);
-    setSelectedOption(e);
+  // 상세 검색 버튼
+  const handleSearchBoard = async () => {
     try {
-      const data = await getCategoryBoardDate(selectedOption);
-      console.log("리스트만 들어오냐", data.list);
-      setNomalBoardData(data.list);
+      let getSArr = [];
+  
+      if (selectedOption !== "" && selectedOption !== "0") {
+        getSArr.push(`icategory=${selectedOption}`);
+      }
+      if (startDate !== "") {
+        getSArr.push(`startDate=${startDate}`);
+      }
+      if (endDate !== "") {
+        getSArr.push(`endDate=${endDate}`);
+      }
+      if (titleTxt !== "") {
+        getSArr.push(`title=${titleTxt}`);
+      }
+  
+      let getStxt = "";
+      if (getSArr.length > 0) {
+        getStxt = "?" + getSArr.join("&");
+      }
+  
+      console.log("검색 조건:", getStxt);
+  
+      const result = await getTotalListData(getStxt);
+      console.log("검색 결과:", result);
+    
+      setNomalBoardData(result);
     } catch (err) {
       console.log(err);
     }
   };
+  
 
   useEffect(() => {
     userNoticeList();
     boardCategory();
+    toTalListData();
   }, []);
 
   return (
@@ -187,40 +229,42 @@ const PostsBoard = () => {
               <button onClick={handleThreeData}>3일</button>
               <button onClick={handleSevenData}>7일</button>
               <button onClick={handleMonthData}>1개월</button>
-              <input type="date" onChange={e => handleStartDate(e)}></input>
-              <input type="date" onChange={e => handleEndDate(e)}></input>
             </div>
           </li>
           <li>
-            <span>게시판선택</span>
+            <span>상세 검색</span>
             <div className="data_columns">
               <select
                 value={selectedOption}
                 onChange={e => boardCategoryData(e.target.value)}
               >
-                <option>분류</option>
+                <option value={0}>분류</option>
                 {categorySearch.map((category, index) => (
                   <option key={index} value={category.icategory}>
                     {category.name}
                   </option>
                 ))}
               </select>
-            </div>
-          </li>
-          <li>
-            <span>게시글찾기</span>
-            <div className="data_columns">
-              <select>
+
+              <input type="date" onChange={e => handleStartDate(e)}></input>
+              <input type="date" onChange={e => handleEndDate(e)}></input>
+
+              <select
+                name="title"
+                onChange={e => handleChangeTitle(e.target.value)}
+              >
                 <option>제목</option>
-                <option>작성자</option>
               </select>
-              <input type="text" />
+              <input
+                type="text"
+                onChange={e => handleChangeTitleTxt(e.target.value)}
+              />
+
+              <button onClick={handleSearchBoard}>검색</button>
             </div>
           </li>
         </ul>
-        <div className="posts_buttom">
-          <button onClick={handleSearchBoard}>검색</button>
-        </div>
+
         <h2 className="posts_list">게시물 리스트</h2>
         {noticeState ? (
           <>
