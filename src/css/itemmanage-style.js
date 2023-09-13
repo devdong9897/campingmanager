@@ -50,10 +50,10 @@ export const ItemManageWrapper = styled.div`
             li:first-child{
                 border-bottom:none;
                 span:nth-of-type(4) input{
-                    width: 50%;
+                    width: 40%;
                 }
             }
-            }
+        }
             div{
                 text-align: center;
                 padding:10px 0;
@@ -94,7 +94,7 @@ export const ItemManageWrapper = styled.div`
                 height: auto;
                 text-align: center;
                 border:1px solid #000;
-                grid-template-columns:0.5fr 3fr 0.5fr 0.5fr 1.5fr 0.5fr;
+                grid-template-columns:0.5fr 5fr 0.5fr 0.5fr 0.8fr 0.3fr 0.5fr;
                 
                 span{
                     float:left;
@@ -106,9 +106,6 @@ export const ItemManageWrapper = styled.div`
                 span:last-child {
                     border-right:none;
                 }
-            }
-            li:hover{
-                cursor: pointer;
             }
             li:first-child{
                 border-bottom:none;

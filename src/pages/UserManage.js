@@ -7,6 +7,11 @@ const UserManage = () => {
   const [oneUserList, setOneUserList] = useState([])
   const [isOpen, setIsOpen] = useState(false)
 
+  const [filterName, setFilterName] = useState("")
+  const [filterGender, setFilterGender] = useState("")
+  const [filterUserId, setFilterUserId] = useState("")
+  const [filterTell, setFilterTell] = useState("")
+
   // 모든 유저 리스트 보기
   const AllUserListData = async () => {
     try {
@@ -18,9 +23,21 @@ const UserManage = () => {
     }
   }
 
-  const handleClickShow = () => {
-    setIsOpen(true)
+  // 유저 한명 검색
+  const handleClickShow = async () => {
+    try {
+      const result = await getOneUserList(
+        filterName,
+        filterUserId,
+        filterGender,
+        filterTell,
+      )
+      setUserList(result)
+    }catch(err){
+      console.log(err)
+    }
   }
+
 
   // 유저 한명 리스트 보기
   const OneUserListData = async () => {
@@ -49,26 +66,49 @@ const UserManage = () => {
               <li>
                 <span>이름</span>
                 <span>
-                  <input type="text" className="user_box"/>
+                  <input 
+                    type="text" 
+                    className="user_box"
+                    value={filterName}
+                    onChange={e => setFilterName(e.target.value)}
+                  />
                 </span>
                 <span>성별</span>
                 <span>
-                  <input type="radio" name="userradio" />
+                  <input 
+                    type="radio" 
+                    name="userradio" 
+                    value="남자"
+                    onChange={e => setFilterGender(e.target.value)}
+                  />
                   남자
-                  <input type="radio" name="userradio" />
+                  <input 
+                    type="radio" 
+                    name="userradio"
+                    value="여자"
+                    onChange={e => setFilterGender(e.target.value)}
+                  />
                   여자
                 </span>
               </li>
               <li>
                 <span>유저 아이디</span>
                 <span>
-                  <input type="text"/>
+                  <input 
+                    type="text"
+                    value={filterUserId}
+                    onChange={e => setFilterUserId(e.target.value)}
+                  />
                 </span>
               </li>
               <li>
                 <span>전화번호</span>
                 <span>
-                  <input type="text"/>
+                  <input 
+                    type="text"
+                    value={filterTell}
+                    onChange={e => setFilterTell(e.target.value)}
+                  />
                 </span>
               </li>
             </ul>
