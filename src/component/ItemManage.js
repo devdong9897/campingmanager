@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { ItemManageWrapper } from '../css/itemmanage-style'
 import { getItemSearch, getItemSearchList } from '../api/itemFetch'
+import { sassNull } from 'sass'
 
 const ItemManage = () => {
     // const [itemSearchList, setItemSearchList] = useState()
     const [searchList, setSearchList] = useState([])
     const [searchItem, setSearchItem] = useState([])
+    // 리스트 카테고리순 정렬
+    const [sortType, setSortType] = useState("SalesRanking")
     const [searchKeyword, setSearchKeyword] = useState("")
 
     // 아이템 검색
@@ -29,6 +32,45 @@ const ItemManage = () => {
         }
     }
 
+    // 카테고리 순 검색
+    const handleSort = sortType => {
+        setSortType(sortType);
+        const sortedList = [...searchList]
+
+        switch (sortType) {
+            case "SalesRanking":
+                sortedList.sort((a,b) => a.stock - b.stock)
+                break;
+            case "Latest":
+                sortedList.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt))
+                break;   
+            case "OldOrder":
+                sortedList.sort((a,b) => new Date(a.createdAt) - new Date(b.createdAt))
+                break; 
+            case "HighPrice":
+                sortedList.sort((a,b) => b.price - a.price)
+                break;    
+            case "LowPrice":
+                sortedList.sort((a,b) => a.price - b.price)
+                break;      
+            default:
+                break;
+        }
+        setSearchList(sortedList)
+    }
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString)
+        const year = date.getFullYear()
+        const month = String(date.getMonth() + 1).padStart(2,'0')
+        const day = String(date.getDate()).padStart(2, '0')
+        return  `${year}-${month}-${day}`
+    }
+
+    // 검색
+    const handleClickSearch = () => {
+        
+    }
     // 개별 검색
     // const handSearch = async event => {
     //     event.preventDefault()
@@ -83,17 +125,18 @@ const ItemManage = () => {
                     <div>
                         <button
                             // onClick={handSearch}
+                            onClick={handleClickSearch}
                         >검색</button>
                     </div>
                 </div>
 
             <div className='itemmanage_bottom'>
                 <div className='itemmanage_bottom_category'>
-                    <button>판매순</button>
-                    <button>최신순</button>
-                    <button>오래된순</button>
-                    <button>높은가격순</button>
-                    <button>낮은가격순</button>
+                    <button onClick={() => handleSort("SalesRanking")}>판매순</button>
+                    <button onClick={() => handleSort("Latest")}>최신순</button>
+                    <button onClick={() => handleSort("OldOrder")}>오래된순</button>
+                    <button onClick={() => handleSort("HighPrice")}>높은가격순</button>
+                    <button onClick={() => handleSort("LowPrice")}>낮은가격순</button>
                 </div>
                 <ul>
                     <li>
@@ -102,6 +145,7 @@ const ItemManage = () => {
                         <span>카테고리</span>
                         <span>가격</span>
                         <span>상품 등록일</span>
+                        <span>재고</span>
                         <span>진열상태</span>
                     </li>
                     {searchList.map((item, index) => (
@@ -110,8 +154,9 @@ const ItemManage = () => {
                             <span>{item.name}</span>
                             <span>{item.categoryName}</span>
                             <span>{item.price}</span>
-                            <span>{item.createdAt}</span>
-                            <span>{item.status}</span>
+                            <span>{formatDate(item.createdAt)}</span>
+                            <span>{item.stock}</span>
+                            <span>{item.status === 1 ? ("진열") : ("진열안함")}</span>
                         </li>
                     ))}
                 </ul>

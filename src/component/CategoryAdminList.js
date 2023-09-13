@@ -45,8 +45,10 @@ const CategoryAdminList = ({ item, toggleEditMode, categoryListDelete }) => {
   }, []);
 
   // items 배열을 iitemCategory값으로 오름차순 정렬
-  // item.sort((a,b) => a.iitemCategory - b.iitemCategory)
-
+  // useEffect(() => {
+  //   item.sort((a,b) => b.iitemCategory - a.iitemCategory)
+  // },[])
+  
   return (
     <li>
       <span>{item.iitemCategory}</span>
