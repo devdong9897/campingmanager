@@ -94,7 +94,7 @@ const ItemManage = () => {
             <div className='itemmanage_inner'>
                 <div className='itemmanage_top'>
                     <ul>
-                        {/* {itemSearchList.map((item, index) => (
+                        {/* {itemSearchLiasdst.map((item, index) => (
                             <li key={index}>
                                 
                             </li>
