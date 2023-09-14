@@ -79,6 +79,12 @@ export const ItemManageWrapper = styled.div`
                     border:1px solid #000;
                     background-color: white;
                 }
+                .itemmanage_bottom_category_edit,
+                .itemmanage_bottom_category_delete {
+                    float:right;
+                    margin-right:0;
+                    margin-left:10px;
+                }
                 button:hover{
                     background-color: lightyellow;
                 }
