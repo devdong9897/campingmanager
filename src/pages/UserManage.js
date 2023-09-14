@@ -155,9 +155,9 @@ const UserManage = () => {
               <ul>
                 <li>
                   <span>아이디</span>
-                  <span>닉네임</span>
+                  <span>이름</span>
                   <span>생년월일</span>
-                  <span>휴대전화</span>
+                  <span>전화번호</span>
                   <span>성별</span>
                   <span>유저형태</span>
                 </li>
