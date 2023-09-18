@@ -31,8 +31,8 @@
 
 <div align="center">
   - [GitHub](https://github.com/devdong9897/campingsmore) <br/>
-  - [Notion](https://www.notion.so/1-TodoList-Grow-Green-d560a969307441a3a59024c019aba580) <br/>
-  - [Figma] (https://www.figma.com/file/gBaoqSAs24bzZh6w4ad8tp/Untitled?type=design&node-id=0-1&mode=design&t=UrIUrZ3CI4y7xys5-0)
+  - [Notion]([https://www.notion.so/1-TodoList-Grow-Green-d560a969307441a3a59024c019aba580](https://www.notion.so/2-3-Camping-Smore-f1cc34fd0c514a7fae54128ebff094f1) <br/>
+  - [Figma] ([https://www.figma.com/file/gBaoqSAs24bzZh6w4ad8tp/Untitled?type=design&node-id=0-1&mode=design&t=UrIUrZ3CI4y7xys5-0](https://www.figma.com/file/gBaoqSAs24bzZh6w4ad8tp/Untitled?type=design&node-id=84-192&mode=design)
 </div>
 
 
