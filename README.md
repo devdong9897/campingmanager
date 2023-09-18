@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:#e69138,100:bca3d6&height=200&section=header&text=Camping%20Manager&fontSize=90&fontColor=fff"" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:e69138,100:bca3d6&height=200&section=header&text=Camping%20Manager&fontSize=90&fontColor=fff"" />
 </div>
 
 <br/>
