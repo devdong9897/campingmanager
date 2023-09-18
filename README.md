@@ -1,5 +1,5 @@
   <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:#00bfff,100:#00bfff&height=200&section=header&text=Camping%20Smore&fontSize=90&fontColor=fff"" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:e69138,100:D2B48C&height=200&section=header&text=Camping%20Smore&fontSize=90&fontColor=fff"" />
 </div>
 <br/>
 <br/>
@@ -83,5 +83,5 @@
 
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:#00bfff,100:#00bfff&height=200&section=footer" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:e69138,100:D2B48C&height=200&section=footer" />
 </div>
