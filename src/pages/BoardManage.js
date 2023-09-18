@@ -109,7 +109,7 @@ const BoardManage = () => {
               className={`notice ${isNoticeClicked ? "active" : ""}`}
               onClick={handleNoticeClick}
             >
-              공지사항이다잉
+              공지사항입니다.
             </span>
           </li>
           <li>
@@ -118,15 +118,7 @@ const BoardManage = () => {
           </li>
           <li>
             <span>총 개수</span>
-            <span>0/1</span>
-          </li>
-          <li>
-            <span>관리</span>
-            <span className="board_btn">
-              <button onClick={handleViewClick}>글보기</button>
-              <button onClick={hanldeDeleteClick}>글삭제</button>
-              <button onClick={handleAnnouncementClick}>공지글</button>
-            </span>
+            <span>1/1</span>
           </li>
           <li>
             <span>표시여부</span>
